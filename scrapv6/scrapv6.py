@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from login import credentials
 import networkx as nx
-import tldextract
 
 # Créer un graphe NetworkX
 G = nx.Graph()
@@ -28,14 +27,13 @@ login_payload = {
     'geolocation': '',
 }
 
+# Charger la liste noire des extensions à partir du fichier
+with open('blacklist.txt', 'r') as file:
+    blacklist = {line.strip() for line in file}
+
 
 # ------------------------ Fonctions utilitaires ------------------------
 
-
-# Fonction pour extraire le nom de domaine à partir d'une URL
-def extract_domain(url):
-    extraction = tldextract.extract(url)
-    return extraction.domain
 
 # Fonction pour récupérer le titre d'une page
 def get_page_title(url):
@@ -57,6 +55,7 @@ def get_links(page_url):
     links = index_page.find_all("a")
     result=[]
 
+    #on recupere le lien absolu
     for link in links:
         href = link.get("href")
         if href and (href[0] != "#") and ("null" not in href):
@@ -76,41 +75,14 @@ def scrape_page(url, depth=0, source=None):
     if url in visited_pages:
         return
     
+    # On ne traite que les pages de l'ENT
     if "https://webapplis.utc.fr" not in url:
         return
     
-    if url.endswith(".pdf"):
+    # On ne traite pas les pages de fichiers (pdf, docx, zip, etc.)
+    extension = url.split(".")[-1]
+    if extension in blacklist:
         return
-    
-    # Vérifier si cette page est inintéréssante
-    """
-    prefix = ["http://catalogue.dsi.utc.fr", "https://www.utc.fr", "https://bibliotheque.utc.fr", "mailto:", "tel:", "https://interactions.utc.fr/"]
-    suffix = [".pdf"]
-    if any([url.startswith(p) for p in prefix]) or any([url.endswith(s) for s in suffix]):
-        return
-    
-    # Vérifier si le nom de domaine est blacklist
-    domain = extract_domain(url) # Extraire le domaine de l'URL
-    
-    # Ajout dans withelist ou blacklist si le domaine n'est pas encore connu
-    if (domain not in whitelist) and (domain not in blacklist):
-        print(f"Lien non reconnu : {url}")
-        choice = input(f"Le domaine {domain} n'est pas dans la whitelist ni la blacklist. Ajouter en whitelist (w) ou blacklist (b)? ").lower()
-        if choice == 'w':
-            whitelist.append(domain)
-            update_whitelist()
-        elif choice == 'b':
-            blacklist.append(domain)
-            update_blacklist()
-        else:
-            print("Choix invalide. Ignoré.")
-            return
-
-    # Filtre des domaines
-    if domain in blacklist:
-        return
-
-    """
     
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
@@ -136,32 +108,6 @@ def scrape_page(url, depth=0, source=None):
     for link in links:
         scrape_page(link, depth + 1, url)
 
-
-# ------------------------ Gestion whitelist et blacklist ------------------------
-
-
-# Charger la whitelist et la blacklist depuis le fichier
-def load_list(filename):
-    try:
-        with open(filename, 'r') as file:
-            return [line.strip() for line in file.readlines()]
-    except FileNotFoundError:
-        return []
-
-whitelist_filename = 'whitelist.txt'
-blacklist_filename = 'blacklist.txt'
-whitelist = load_list(whitelist_filename)
-blacklist = load_list(blacklist_filename)
-
-# Fonction pour mettre à jour la whitelist dans le fichier
-def update_whitelist():
-    with open(whitelist_filename, 'w') as file:
-        file.write('\n'.join(whitelist))
-
-# Fonction pour mettre à jour la blacklist dans le fichier
-def update_blacklist():
-    with open(blacklist_filename, 'w') as file:
-        file.write('\n'.join(blacklist))
 
 
 # ------------------------ Connexion + Scrapping ------------------------
