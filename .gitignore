@@ -1,2 +1,4 @@
 .DS_Store
 login.py
+.idea/
+__pycache__/*
