@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from login import credentials
 import networkx as nx
+import tldextract
 
 # Créer un graphe NetworkX
 G = nx.Graph()
@@ -32,6 +33,11 @@ login_payload = {
     'geolocation': '',
 }
 
+# Fonction pour extraire le domaine à partir d'une URL
+def extract_domain(url):
+    extraction = tldextract.extract(url)
+    return extraction.domain
+
 # Fonction pour récupérer les liens d'une page avec filtrage
 def get_links(page_url):
     response = session.get(page_url)
@@ -43,14 +49,20 @@ def get_links(page_url):
 
     for link in links:
         href = link.get("href")
-        if href and (href[0]!="#") and("null" not in href) :
-            #si le lien est relatif
+        if href and (href[0] != "#") and ("null" not in href):
+            # si le lien est relatif
             if ("http" or "https") not in link.get("href"):
-                valid_links.append(target_url+link.get("href"))
-            #sinon
+                full_link = urljoin(target_url, link.get("href"))
+                # Exclure les liens se terminant par ".pdf" et commençant par "mailto:"
+                if not (full_link.endswith(".pdf") or full_link.startswith("mailto:") or full_link.startswith("tel:") or full_link.startswith("https://www.utc.fr")):
+                    valid_links.append(full_link)
+            # sinon
             else:
-                valid_links.append(link.get("href"))
+                # Exclure les liens se terminant par ".pdf" et commençant par "mailto:"
+                if not (link.get("href").endswith(".pdf") or link.get("href").startswith("mailto:")):
+                    valid_links.append(link.get("href"))
     return valid_links
+
 
 # Fonction pour récupérer le titre d'une page
 def get_page_title(url):
@@ -65,32 +77,51 @@ def scrape_page(url, depth=0, source=None):
     if url in visited_pages:
         return
 
+    # Extraire le domaine de l'URL
+    domain = extract_domain(url)
+
+    # Vérifier la whitelist et la blacklist pour la compléter si besoin
+    if domain in blacklist:
+        return
+    elif domain not in whitelist:
+        print(f"Lien non reconnu : {url}")
+        choice = input(f"Le domaine {domain} n'est pas dans la whitelist ni la blacklist. Ajouter en whitelist (w) ou blacklist (b)? ").lower()
+        if choice == 'w':
+            whitelist.append(domain)
+            update_whitelist()
+        elif choice == 'b':
+            blacklist.append(domain)
+            update_blacklist()
+        else:
+            print("Choix invalide. Ignoré.")
+            return
+
+    # On applique notre filtre une deuxieme fois pour les pages qui viennet d'être rajoutés
+    if domain in blacklist:
+        return
+    
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
-
-    # Verification si la page est dans notre whitelist
-
+    
     links = get_links(url)
 
-    # Affage de la page en traitement
+    # Affichage de la page en traitement
     title = get_page_title(url)
     print("Informations sur la page : ")
     print(f"Profondeur : from [{source}] -> [{depth}]")
     print(f"Url : [{url}]")
     print(f"Titre : [{title}]")
     print(f"Nombre de liens : [{len(links)}]\n")
-    #Affichage de toutes les liens présents sur la page
+    # Affichage de tous les liens présents sur la page
     for link in links:
         G.add_edge(url, link)
         print(f"    - {link}")
 
     print("\n\n\n------------------------\n\n\n")
 
-    # Scraper les pages liées en profondeur si il n'a pas déjà été visité
+    # Scraper les pages liées en profondeur si elles n'ont pas déjà été visitées
     for link in links:
         if link not in visited_pages:
-            print(whitelist)
-            print(blacklist)
             scrape_page(link, depth + 1, url)
 
 # Initialiser l'ensemble des pages visitées
@@ -99,9 +130,28 @@ visited_pages = set()
 # Soumettre le formulaire de connexion
 response = session.post(login_url, data=login_payload)
 
-#Définition d'une whitelist
-whitelist = ["https://webapplis.utc.fr", "https://utc.fr", "https://ngapplis.utc.fr"]
-blacklist = ["https://youtube.com"]
+# Charger la whitelist et la blacklist depuis le fichier
+def load_list(filename):
+    try:
+        with open(filename, 'r') as file:
+            return [line.strip() for line in file.readlines()]
+    except FileNotFoundError:
+        return []
+
+whitelist_filename = 'whitelist.txt'
+blacklist_filename = 'blacklist.txt'
+whitelist = load_list(whitelist_filename)
+blacklist = load_list(blacklist_filename)
+
+# Fonction pour mettre à jour la whitelist dans le fichier
+def update_whitelist():
+    with open(whitelist_filename, 'w') as file:
+        file.write('\n'.join(whitelist))
+
+# Fonction pour mettre à jour la blacklist dans le fichier
+def update_blacklist():
+    with open(blacklist_filename, 'w') as file:
+        file.write('\n'.join(blacklist))
 
 # Vérifier si la connexion a réussi (vous pouvez personnaliser cette vérification en fonction du site)
 if "Authentication failed" in response.text:

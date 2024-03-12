@@ -3,6 +3,13 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from login import credentials
 import networkx as nx
+import tldextract
+
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from login import credentials
+import networkx as nx
 
 # Créer un graphe NetworkX
 G = nx.Graph()
@@ -31,6 +38,11 @@ login_payload = {
     '_eventId': 'submit',
     'geolocation': '',
 }
+
+# Fonction pour extraire le domaine à partir d'une URL
+def extract_domain(url):
+    extraction = tldextract.extract(url)
+    return extraction.domain
 
 # Fonction pour récupérer les liens d'une page avec filtrage
 def get_links(page_url):
@@ -65,28 +77,44 @@ def scrape_page(url, depth=0, source=None):
     if url in visited_pages:
         return
 
+    # Extraire le domaine de l'URL
+    domain = extract_domain(url)
+
+    # Vérifier la whitelist et la blacklist
+    if domain in blacklist:
+        print(f"Page {url} en blacklist. Ignorée.")
+        return
+    elif domain not in whitelist:
+        print(f"lien non reconnu : {url}")
+        choice = input(f"Le domaine {domain} n'est pas dans la whitelist ni la blacklist. Ajouter en whitelist (w) ou blacklist (b)? ").lower()
+        if choice == 'w':
+            whitelist.append(domain)
+        elif choice == 'b':
+            blacklist.append(domain)
+        else:
+            print("Choix invalide. Ignoré.")
+            return
+
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
 
-    # Verification si la page est dans notre whitelist
-
     links = get_links(url)
 
-    # Affage de la page en traitement
+    # Affichage de la page en traitement
     title = get_page_title(url)
     print("Informations sur la page : ")
     print(f"Profondeur : from [{source}] -> [{depth}]")
     print(f"Url : [{url}]")
     print(f"Titre : [{title}]")
     print(f"Nombre de liens : [{len(links)}]\n")
-    #Affichage de toutes les liens présents sur la page
+    # Affichage de tous les liens présents sur la page
     for link in links:
         G.add_edge(url, link)
         print(f"    - {link}")
 
     print("\n\n\n------------------------\n\n\n")
 
-    # Scraper les pages liées en profondeur si il n'a pas déjà été visité
+    # Scraper les pages liées en profondeur si elles n'ont pas déjà été visitées
     for link in links:
         if link not in visited_pages:
             print(whitelist)
@@ -100,8 +128,8 @@ visited_pages = set()
 response = session.post(login_url, data=login_payload)
 
 #Définition d'une whitelist
-whitelist = ["https://webapplis.utc.fr", "https://utc.fr", "https://ngapplis.utc.fr"]
-blacklist = ["https://youtube.com"]
+whitelist = ['utc']
+blacklist = ['cnil', 'twitter', 'linkedin', 'instagram']
 
 # Vérifier si la connexion a réussi (vous pouvez personnaliser cette vérification en fonction du site)
 if "Authentication failed" in response.text:
