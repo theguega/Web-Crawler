@@ -14,3 +14,7 @@ mp4
 avi
 mov
 xhtml
+jpg
+png
+show
+guegathe
