@@ -56,7 +56,7 @@ def get_page_title(url):
     return title_tag.text if title_tag else "Titre non trouvé"
 
 # Fonction pour scraper les pages en profondeur
-def scrape_page(url, depth=0):
+def scrape_page(url, depth=0, source=None):
     # Vérifier si la page a déjà été visitée
     if url in visited_pages:
         return
@@ -72,10 +72,10 @@ def scrape_page(url, depth=0):
     # Affage de la page en traitement
     title = get_page_title(url)
     print("Informations sur la page : ")
-    print(f"Profondeur : [{depth}]")
+    print(f"Profondeur : from [{source}] -> [{depth}]")
     print(f"Url : [{url}]")
     print(f"Titre : [{title}]")
-
+    print(f"Nombre de liens : [{len(links)}]\n")
     #Affichage de toutes les liens présents sur la page
     for link in links:
         print(f"    - {link}")
@@ -85,7 +85,7 @@ def scrape_page(url, depth=0):
     # Scraper les pages liées en profondeur si il n'a pas déjà été visité
     for link in links:
         if link not in visited_pages:
-            scrape_page(link, depth + 1)
+            scrape_page(link, depth + 1, url)
 
 # Initialiser l'ensemble des pages visitées
 visited_pages = set()
@@ -98,7 +98,7 @@ if "Authentication failed" in response.text:
     print("Échec de la connexion. Vérifiez vos identifiants.")
 else:
     # Scraper la page cible et ses liens en profondeur
-    scrape_page(target_url)
+    scrape_page(target_url, 0, "Main page")
 
 # Fermer la session
 session.close()
