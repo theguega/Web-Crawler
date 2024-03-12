@@ -59,7 +59,7 @@ def get_links(page_url):
             # sinon
             else:
                 # Exclure les liens se terminant par ".pdf" et commençant par "mailto:"
-                if not (link.get("href").endswith(".pdf") or link.get("href").startswith("mailto:")):
+                if not (link.get("href").endswith(".pdf") or link.get("href").startswith("mailto:") or link.get("href").startswith("https://www.utc.fr")):
                     valid_links.append(link.get("href"))
     return valid_links
 
