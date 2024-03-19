@@ -1,19 +1,17 @@
 # IC05_Project
 
-## Etape 1
-Implémentation d'un petit scrapper (scrap.py)
+## ENT - UTC Scrapper in Python
 
-## Etape 2 
-Transformation du scrapper pour scrapper toutes les sous pages sans redondance grâce à un set
+## How to build the project
 
-## Etape 3 
-Utilisation d'une whitelist / blacklist
+> 1- run pip install src/requirements.txt  
+> 2 - add login.py file in src folder with following arguments :
 
-## Etape 4
-A chaque nouveau nom de domaine, le programme demande si il doit blacklister ou withelister le nom de domaine et il l'ajoute dans le fichier txt
-Exclusion du site www.utc.fr
+```python
+credentials = {
+    'username': 'yourusername',
+    'password': 'youpassword',
+}
+````
 
-## Version 5
-restriction a www.webappli.utc.fr
-
-Utiliser Selenium
+Credits : Samuel Beziat & Theo Guegan
