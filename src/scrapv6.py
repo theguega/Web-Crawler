@@ -91,6 +91,7 @@ def scrape_page(url, depth=0, source=None):
     links = get_links(url)
 
     # Affichage de la page
+    """
     title = get_page_title(url)
     print("Informations sur la page : ")
     print(f"Profondeur : from [{source}] -> [{depth}]")
@@ -98,12 +99,12 @@ def scrape_page(url, depth=0, source=None):
     print(f"Titre : [{title}]")
     print(f"Nombre de liens : [{len(links)}]")
     print(f"Extension : {extension}\n")
-    # Affichage de tous les liens présents sur la page
+    print("\n\n\n------------------------\n\n\n")
+    """
+    # Ajout de tous les liens présents sur la page dans notre graph
     for link in links:
         G.add_edge(url, link)
-        print(f"    - {link}")
-
-    print("\n\n\n------------------------\n\n\n")
+        #print(f"    - {link}")
 
     # Scraper les pages liées en profondeur si elles n'ont pas déjà été visitées
     for link in links:
