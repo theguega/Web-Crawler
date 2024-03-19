@@ -1,17 +1,23 @@
-import urllib.request
 from bs4 import BeautifulSoup, Comment
 
 
 def word_count(url, session):
     def tag_visible(element):
-        if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
+        if element.parent.name in [
+            "style",
+            "script",
+            "head",
+            "title",
+            "meta",
+            "[document]",
+        ]:
             return False
         if isinstance(element, Comment) or not element.strip():
             return False
         return True
 
     def words_from_html():
-        soup = BeautifulSoup(session.get(url).content, 'html.parser')
+        soup = BeautifulSoup(session.get(url).content, "html.parser")
         texts = soup.findAll(string=True)
         visible_texts = filter(tag_visible, texts)
         words = []
@@ -21,13 +27,14 @@ def word_count(url, session):
         return words
 
     try:
-        #html = urllib.request.urlopen(url).read()
+        # html = urllib.request.urlopen(url).read()
         visible_words = words_from_html()
         word_count = len(visible_words)
         return word_count, visible_words
     except Exception as e:
         print("Failed to retrieve the webpage:", e)
         return None, None
+
 
 # Exemple d'utilisation :
 # URL = 'https://webapplis.utc.fr/ent/services/services.jsf?sid=668'
