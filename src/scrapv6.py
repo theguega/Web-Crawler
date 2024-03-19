@@ -1,8 +1,9 @@
-import requests
-from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from login import credentials
+import requests
 import networkx as nx
+from bs4 import BeautifulSoup
+from login import credentials
+from word_count import word_count
 
 # Créer un graphe NetworkX
 G = nx.Graph()
@@ -15,20 +16,20 @@ target_url = "https://webapplis.utc.fr/ent/index.jsf"
 session = requests.Session()
 # Effectuer la connexion
 login_response = session.get(login_url)
-login_soup = BeautifulSoup(login_response.content, 'html.parser')
+login_soup = BeautifulSoup(login_response.content, "html.parser")
 # Extraire les paramètres nécessaires pour la soumission du formulaire
-execution_value = login_soup.find('input', {'name': 'execution'})['value']
+execution_value = login_soup.find("input", {"name": "execution"})["value"]
 # Préparer les données pour la soumission du formulaire
 login_payload = {
-    'username': credentials['username'],
-    'password': credentials['password'],
-    'execution': execution_value,
-    '_eventId': 'submit',
-    'geolocation': '',
+    "username": credentials["username"],
+    "password": credentials["password"],
+    "execution": execution_value,
+    "_eventId": "submit",
+    "geolocation": "",
 }
 
 # Charger la liste noire des extensions à partir du fichier
-with open('blacklist.txt', 'r') as file:
+with open("blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
 
@@ -38,7 +39,7 @@ with open('blacklist.txt', 'r') as file:
 # Fonction pour récupérer le titre d'une page
 def get_page_title(url):
     response = session.get(url)
-    page_soup = BeautifulSoup(response.content, 'html.parser')
+    page_soup = BeautifulSoup(response.content, "html.parser")
     title_tag = page_soup.find("title")
     return title_tag.text if title_tag else "Titre non trouvé"
 
@@ -51,11 +52,11 @@ def get_links(page_url):
     response = session.get(page_url)
 
     # Traitement de la page cible
-    index_page = BeautifulSoup(response.content, 'html.parser')
+    index_page = BeautifulSoup(response.content, "html.parser")
     links = index_page.find_all("a")
-    result=[]
+    result = []
 
-    #on recupere le lien absolu
+    # on recupere le lien absolu
     for link in links:
         href = link.get("href")
         if href and (href[0] != "#") and ("null" not in href):
@@ -74,19 +75,19 @@ def scrape_page(url, depth=0, source=None):
     # Vérifier si la page a déjà été visitée
     if url in visited_pages:
         return
-    
+
     # On ne traite que les pages de l'ENT
     if "https://webapplis.utc.fr" not in url:
         return
-    
+
     # On ne traite pas les pages de fichiers (pdf, docx, zip, etc.)
     extension = url.split(".")[-1]
     if extension in blacklist:
         return
-    
+
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
-    
+    print(word_count(url, session)[0], url)
     # Scrapping de la page
     links = get_links(url)
 
@@ -104,12 +105,11 @@ def scrape_page(url, depth=0, source=None):
     # Ajout de tous les liens présents sur la page dans notre graph
     for link in links:
         G.add_edge(url, link)
-        #print(f"    - {link}")
+        # print(f"    - {link}")
 
     # Scraper les pages liées en profondeur si elles n'ont pas déjà été visitées
     for link in links:
         scrape_page(link, depth + 1, url)
-
 
 
 # ------------------------ Connexion + Scrapping ------------------------
@@ -128,7 +128,7 @@ else:
     scrape_page(target_url, 0, "Main page")
 
 # Exporter le graphe au format GraphML
-nx.write_graphml(G, 'graph.graphml')
+nx.write_graphml(G, "graph.graphml")
 
 # Fermer la session
 session.close()
