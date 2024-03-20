@@ -1,8 +1,9 @@
+import requests
 from bs4 import BeautifulSoup, Comment
 
 
-def word_count(url, session):
-    def tag_visible(element):
+def word_count(url: str, session: requests.Session) -> tuple[int, list[str]] | tuple[None, None]:
+    def tag_visible(element) -> bool:
         if element.parent.name in [
             "style",
             "script",
@@ -10,13 +11,11 @@ def word_count(url, session):
             "title",
             "meta",
             "[document]",
-        ]:
-            return False
-        if isinstance(element, Comment) or not element.strip():
+        ] or isinstance(element, Comment) or not element.strip():
             return False
         return True
 
-    def words_from_html():
+    def words_from_html() -> list[str]:
         soup = BeautifulSoup(session.get(url).content, "html.parser")
         texts = soup.findAll(string=True)
         visible_texts = filter(tag_visible, texts)
@@ -27,11 +26,10 @@ def word_count(url, session):
         return words
 
     try:
-        # html = urllib.request.urlopen(url).read()
         visible_words = words_from_html()
-        word_count = len(visible_words)
-        return word_count, visible_words
-    except Exception as e:
+        count = len(visible_words)
+        return count, visible_words
+    except ValueError as e:
         print("Failed to retrieve the webpage:", e)
         return None, None
 

@@ -1,101 +1,126 @@
 import cv2
 import numpy as np
+import matplotlib.pyplot as plt
+import time
+from Screenshot import Screenshot
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from Screenshot import Screenshot
+from selenium import webdriver
+import time
+from playwright.sync_api import sync_playwright
 
-# def create_mask(image_path, width):
-#     image = Image.open(image_path)
-#     image_array = np.array(image)
-#     mask = np.zeros(image_array.shape[:2], dtype=bool)
-#     total_pixels = image.width * image.height
-#     current_pixel = 0
-#     for y in range(image.height):
-#         for x in range(image.width):
-#             start_x = max(0, x - width // 2)
-#             end_x = min(image.width, x + width // 2 + 1)
-#             start_y = max(0, y - width // 2)
-#             end_y = min(image.height, y + width // 2 + 1)
-#             window = image_array[start_y:end_y, start_x:end_x]
+def scrollFullPage(page):
+    totalHeight = page.evaluate('document.body.scrollHeight')
+    distance = 100
+    while True:
+        page.evaluate(f'window.scrollBy(0, {distance})')
+        totalHeight -= distance
+        if totalHeight <= 0:
+            break
+def run(playwright):
+    # launch the browser
+    browser = playwright.chromium.launch()
+    # opens a new browser page
+    page = browser.new_page()
+    # navigate to the website
+    page.goto('https://utc.fr/')
+    scrollFullPage(page)
+    # take a full-page screenshot
+    page.wait_for_timeout(5000)
+    page.screenshot(path='example.png', full_page=True, scale='css')
+
+    # always close the browser
+    browser.close()
+
+with sync_playwright() as playwright:
+    run(playwright)
+
+# def reduce_image(image, taille):
+#     # Retrancher le reste de la division par 4 du nombre de lignes et de colonnes
+#     new_height = image.shape[0] - (image.shape[0] % taille)
+#     new_width = image.shape[1] - (image.shape[1] % taille)
+#
+#     # Diviser l'image en carrés de 4x4 pixels et calculer la moyenne pour chaque carré
+#     reduced_image = np.mean(
+#         image[:new_height, :new_width].reshape(
+#             new_height // taille, taille, new_width // taille, taille
+#         ),
+#         axis=(1, 3),
+#     )
+#
+#     return reduced_image
+#
+#
+# def create_mask(image, width):
+#     # Initialiser le masque
+#     mask = np.zeros_like(image, dtype=bool)
+#
+#     # Calculer la moitié de la largeur de la fenêtre
+#     half_width = width // 2
+#
+#     total_pixels = image.shape[0] * image.shape[1]
+#
+#     # Compteur de pixels traités
+#     processed_pixels = 0
+#     # Parcourir chaque pixel de l'image
+#     for y in range(image.shape[0]):
+#         for x in range(image.shape[1]):
+#             # Extraire la région de l'image autour du pixel
+#             start_x = max(0, x - half_width)
+#             end_x = min(image.shape[1], x + half_width + 1)
+#             start_y = max(0, y - half_width)
+#             end_y = min(image.shape[0], y + half_width + 1)
+#             window = image[start_y:end_y, start_x:end_x]
+#
+#             # Vérifier si tous les pixels de la fenêtre ont la même intensité
 #             if np.all(window == window[0, 0]):
 #                 mask[y, x] = True
-#             current_pixel += 1
-#             print(f"{current_pixel / total_pixels * 100:.2f}% complete")
+#
+#             processed_pixels += 1
+#             progress = (processed_pixels / total_pixels) * 100
+#             print(f"Progress: {progress:.2f}% complete", end="\r")
+#
 #     return mask
 #
+#
 # def mask_to_image(mask):
-#     # Convert the boolean mask to uint8 where True becomes 0 (black) and False becomes 255 (white)
-#     mask_image = np.where(mask, 0, 255).astype(np.uint8)
-#     # Create a PIL image from the numpy array
-#     return Image.fromarray(mask_image)
+#     # Convertir le masque en une image binaire (0 pour True, 255 pour False)
+#     mask_image = np.where(mask, 0.0, 1.0)
+#     return mask_image
 #
-# # Path to your PNG image
-# image_path = "screenshot (2).png"
-# # Width of the pixel window to consider
-# width = 30
 #
-# # Create the mask
-# mask = create_mask(image_path, width)
+# def proportion_true_false(mask):
+#     # Compter le nombre de True et de False dans le masque
+#     true_count = np.count_nonzero(mask)
+#     false_count = np.count_nonzero(~mask)  # Compter le complément du masque (False)
 #
-# # Convert the mask to an image
+#     # Calculer les proportions
+#     total_pixels = mask.size
+#     proportion_true = true_count / total_pixels
+#     proportion_false = false_count / total_pixels
+#
+#     return proportion_true, proportion_false
+#
+#
+# image = cv2.imread("screenshot (6).png")
+# gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+# reduced_gray_image = reduce_image(gray_image, 10)
+# # Afficher l'image réduite en niveaux de gris
+# plt.imshow(reduced_gray_image, cmap="gray")
+# plt.axis("off")
+# plt.show()
+#
+#
+# # Créer le masque
+# mask = create_mask(reduced_gray_image, 5)
+# print(proportion_true_false(mask))
+# print(mask.shape)
+#
+# # Convertir le masque en une image
 # mask_image = mask_to_image(mask)
 #
-# # Save or display the image (optional)
-# mask_image.show()
-
-def create_mask(image_path, width):
-    # Charger l'image avec OpenCV
-    image = cv2.imread(image_path)
-
-    # Convertir l'image en niveaux de gris
-    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    # Initialiser le masque
-    mask = np.zeros_like(gray_image, dtype=bool)
-
-    # Calculer la moitié de la largeur de la fenêtre
-    half_width = width // 2
-
-    total_pixels = image.shape[0] * image.shape[1]
-
-    # Compteur de pixels traités
-    processed_pixels = 0
-    # Parcourir chaque pixel de l'image
-    for y in range(image.shape[0]):
-        for x in range(image.shape[1]):
-            # Extraire la région de l'image autour du pixel
-            start_x = max(0, x - half_width)
-            end_x = min(image.shape[1], x + half_width + 1)
-            start_y = max(0, y - half_width)
-            end_y = min(image.shape[0], y + half_width + 1)
-            window = gray_image[start_y:end_y, start_x:end_x]
-
-            # Vérifier si tous les pixels de la fenêtre ont la même intensité
-            if np.all(window == window[0, 0]):
-                mask[y, x] = True
-
-            processed_pixels += 1
-            progress = (processed_pixels / total_pixels) * 100
-            print(f"Progress: {progress:.2f}% complete", end="\r")
-
-    return mask
-
-
-def mask_to_image(mask):
-    # Convertir le masque en une image binaire (0 pour True, 255 pour False)
-    mask_image = np.where(mask, 0, 255).astype(np.uint8)
-    return mask_image
-
-
-# Chemin vers votre image PNG
-image_path = "screenshot (2).png"
-# Largeur de la fenêtre de pixels à considérer
-width = 30
-
-# Créer le masque
-mask = create_mask(image_path, width)
-
-# Convertir le masque en une image
-mask_image = mask_to_image(mask)
-
-# Afficher l'image
-cv2.imshow("Mask Image", mask_image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# plt.imshow(mask_image, cmap="gray", vmin=0, vmax=1, interpolation="none")
+# plt.axis("off")
+# plt.show()
+# plt.imsave("mask.png", mask_image, cmap="gray")
