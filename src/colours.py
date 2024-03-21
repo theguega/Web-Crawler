@@ -7,37 +7,32 @@ from skimage.color import rgb2lab, deltaE_ciede2000
 import numpy as np
 
 
-def normalize_hex_color(hex_color):
-    # Supprimer le caractère '#' du début si présent
-    hex_color = hex_color.lstrip("#")
-    # Si la longueur de la chaîne est de 3, doubler chaque caractère
-    if len(hex_color) == 3:
-        hex_color = "".join([c * 2 for c in hex_color])
-    return "#" + hex_color
+def color_set(url: str) -> set[str]:
+    def normalize_hex_color(hex_color: str) -> str:
+        hex_color = hex_color.lstrip("#")
+        # Si la longueur de la chaîne est de 3, doubler chaque caractère
+        if len(hex_color) == 3:
+            hex_color = "".join([c * 2 for c in hex_color])
+        return "#" + hex_color
 
+    def distance(color: str, color_set: set[str]) -> float:
+        """
+        Calcule la distance entre une couleur et toutes les couleurs dans un ensemble.
+        """
+        # Convertir la couleur en RGB normalisé
+        rgb_color = np.array([[int(color[i : i + 2], 16) / 255 for i in (1, 3, 5)]])
+        lab_color = rgb2lab(rgb_color)
 
-def distance(color, color_set):
-    """
-    Calcule la distance entre une couleur et toutes les couleurs dans un ensemble.
-    """
-    # Convertir la couleur en RGB normalisé
-    rgb_color = np.array([[int(color[i : i + 2], 16) / 255 for i in (1, 3, 5)]])
-    lab_color = rgb2lab(rgb_color)
+        # Calculer la distance entre la couleur et chaque couleur dans l'ensemble
+        distances = [
+            deltaE_ciede2000(
+                lab_color,
+                rgb2lab(np.array([[int(c[i : i + 2], 16) / 255 for i in (1, 3, 5)]])),
+            )
+            for c in color_set
+        ]
+        return min(distances) if distances else float("inf")
 
-    # Calculer la distance entre la couleur et chaque couleur dans l'ensemble
-    distances = [
-        deltaE_ciede2000(
-            lab_color,
-            rgb2lab(np.array([[int(c[i : i + 2], 16) / 255 for i in (1, 3, 5)]])),
-        )
-        for c in color_set
-    ]
-    return min(distances) if distances else float("inf")
-
-
-def extract_colors(url):
-    print("hi")
-    # Récupération du contenu HTML de la page web
     response = requests.get(url, timeout=5)
     html_content = response.text
 
@@ -69,7 +64,6 @@ def extract_colors(url):
             print(normalize_hex_color(color))
             if distance(normalize_hex_color(color), colors) > 20:
                 colors.add(normalize_hex_color(color))
-    print("hi")
     return colors
 
 
@@ -87,17 +81,17 @@ def create_color_image(colors, image_size):
     return Image.fromarray(image_array, "RGB")
 
 
-# URL du site web à analyser
-URL = "https://www.utc.fr/"
-
-# Extraction des couleurs utilisées sur le site web
-colors = extract_colors(URL)
-
-# Affichage des couleurs
-print("Couleurs utilisées sur le site web :")
-for color in colors:
-    print(color)
-
-
-image = create_color_image(colors, 50)
-image.show()
+# # URL du site web à analyser
+# URL = "https://www.utc.fr/"
+#
+# # Extraction des couleurs utilisées sur le site web
+# colors = color_set(URL)
+#
+# # Affichage des couleurs
+# print("Couleurs utilisées sur le site web :")
+# for color in colors:
+#     print(color)
+#
+#
+# # image = create_color_image(colors, 50)
+# # image.show()

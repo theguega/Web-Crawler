@@ -29,7 +29,7 @@ def word_count(url: str, session: requests.Session) -> tuple[int, list[str]] | t
         visible_words = words_from_html()
         count = len(visible_words)
         return count, visible_words
-    except ValueError as e:
+    except Exception as e:
         print("Failed to retrieve the webpage:", e)
         return None, None
 
