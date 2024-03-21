@@ -4,6 +4,7 @@ import networkx as nx
 from bs4 import BeautifulSoup
 from login import credentials
 from word_count import word_count
+from colours import color_set
 
 # Créer un graphe NetworkX
 G = nx.Graph()
@@ -88,6 +89,7 @@ def scrape_page(url, depth=0, source=None):
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
     print(word_count(url, session)[0], url)
+    print(color_set(url, session), url)
     # Scrapping de la page
     links = get_links(url)
 
