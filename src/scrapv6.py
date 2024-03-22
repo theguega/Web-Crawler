@@ -90,9 +90,11 @@ def scrape_page(url, depth=0, source=None):
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
     print(url)
-    print(f"Nombre de mots : {word_count(url, session)[0]}")
+    response = session.get(url)
+    content = BeautifulSoup(response.content, "html.parser")
+    print(f"Nombre de mots : {word_count(content)[0]}")
     print(f"Nombre de couleurs différentes : {len(color_set(url, session))}")
-    print(f"Nombre d'éléments (balises) sur la page : {tag_count(url, session)}")
+    print(f"Nombre d'éléments sur la page : {tag_count(content)}")
     # Scrapping de la page
     links = get_links(url)
 
