@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from login import credentials
 from word_count import word_count
 from colours import color_set
-from elements import tag_count
+from tag_count import tag_count
 
 # Créer un graphe NetworkX
 G = nx.Graph()
