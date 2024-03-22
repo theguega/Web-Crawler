@@ -1,10 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver import Chrome
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 from bs4 import BeautifulSoup
 from word_count import word_count
+
 
 options = webdriver.ChromeOptions()
 options.page_load_strategy = "none"
@@ -34,6 +34,10 @@ login_button.click()
 #
 # driver = Chrome(options=options)
 # driver.get(target_url)
+time.sleep(5)
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+print(word_count(soup))
+driver.get("https://webapplis.utc.fr/ent/services/services.jsf?sid=146")
 time.sleep(5)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 print(word_count(soup))

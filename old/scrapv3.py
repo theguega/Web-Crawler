@@ -1,14 +1,8 @@
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-from login import credentials
-import networkx as nx
 import tldextract
 
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-from login import credentials
+from src.IC05_Project.login import credentials
 import networkx as nx
 
 # Créer un graphe NetworkX

@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from login import credentials
+from src.IC05_Project.login import credentials
 
 # URL de la page de connexion
 login_url = "https://cas.utc.fr/cas/login.jsf"
