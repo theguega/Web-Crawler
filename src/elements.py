@@ -1,24 +1,36 @@
+import bs4
 import requests
 from bs4 import BeautifulSoup
 
 
-def tag_count(url: str, session: requests.Session) -> int | None:
-    response = session.get(url)
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.text, "html.parser")
-        body = soup.body
+def tag_count(content: bs4.BeautifulSoup) -> int | None:
+    try:
+        body = content.body
         if body:
-            balises = body.find_all()
-            return len(balises)
+            print(f"nb balises : {len(body.find_all())}")
+            return len(list(body.descendants))
         return None
-    print("La requête a échoué avec le code :", response.status_code)
-    return None
+    except Exception as e:
+        print("La requête a échoué avec le code :", e)
+        return None
 
 
-# # URL de la page à analyser
-# url = "https://www.crummy.com/software/BeautifulSoup/bs4/doc/"
-# # Appeler la fonction pour compter les balises sur la page
-# nombre_balises = tag_count(url)
-# # Afficher le résultat
-# if nombre_balises is not None:
-#     print("Le nombre total de balises dans la balise <body> est :", nombre_balises)
+# # Pour tester
+# import time
+# from selenium import webdriver
+# from selenium.webdriver import Chrome
+# from bs4 import BeautifulSoup
+#
+# options = webdriver.ChromeOptions()
+# options.page_load_strategy = "none"
+# options.add_argument("--headless=new")
+# driver = Chrome(options=options)
+# #driver.implicitly_wait(3)
+#
+# URL = "https://www.la-spa.fr/"
+#
+# driver.get(URL)
+# time.sleep(3)
+#
+# soup = BeautifulSoup(driver.page_source, 'html.parser')
+# print(tag_count(soup))
