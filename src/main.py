@@ -17,7 +17,7 @@ from tag_count import tag_count
 G = nx.Graph()
 
 # Charger la liste noire des extensions à partir du fichier
-with open("src/blacklist.txt", "r") as file:
+with open("blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
 options = webdriver.ChromeOptions()
@@ -32,7 +32,7 @@ driver = Chrome(options=options)
 # Fonction pour récupérer le titre d'une page
 def get_page_title(url):
     driver.get(url)
-    time.sleep(3)
+    time.sleep()
     page_soup = BeautifulSoup(driver.page_source, "html.parser")
     title_tag = page_soup.find("title")
     return title_tag.text if title_tag else "Titre non trouvé"
