@@ -1,4 +1,3 @@
-import time
 import networkx as nx
 import os
 from bs4 import BeautifulSoup
@@ -25,8 +24,7 @@ with open("src/blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
 options = webdriver.ChromeOptions()
-options.page_load_strategy = "none"
-#options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 
@@ -89,7 +87,6 @@ def scrape_page(url, depth=0, source=None):
     visited_pages.add(url)
 
     driver.get(url)
-    time.sleep(3)
     parser = BeautifulSoup(driver.page_source, "html.parser")
 
     # Appel des différentes fonctions de traitement
@@ -125,7 +122,6 @@ TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
 
 driver.implicitly_wait(2)
 driver.get(TARGET_URL)
-time.sleep(3)
 
 # Find login elements
 username_field = driver.find_element(By.ID, "username")
@@ -136,7 +132,6 @@ login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 username_field.send_keys(credentials["username"])
 password_field.send_keys(credentials["password"])
 login_button.click()
-time.sleep(3)
 
 # Vérifier si la connexion a réussi
 if "Authentication failed" in driver.page_source:
