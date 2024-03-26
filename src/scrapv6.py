@@ -1,30 +1,40 @@
 from urllib.parse import urljoin
-import time
+import requests
 import networkx as nx
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver import Chrome
-from selenium.webdriver.common.by import By
-from src.IC05_Project.login import credentials
-from src.IC05_Project.word_count import word_count
-from src.IC05_Project.colours import color_set
-from src.IC05_Project.tag_count import tag_count
-
-
-# ---------------------- Préparations préliminaires ----------------------
-
+from src.login import credentials
+from src.word_count import word_count
+from src.colours import color_set
+from src.tag_count import tag_count
 
 # Créer un graphe NetworkX
 G = nx.Graph()
 
-# Charger la liste noire des extensions à partir du fichier
-with open("blacklist.txt", "r") as file:
-    blacklist = {line.strip() for line in file}
+# URL de la page de connexion
+login_url = "https://cas.utc.fr/cas/login.jsf"
+# URL de la page à scraper après la connexion
+target_url = "https://webapplis.utc.fr/ent/index.jsf"
 
-options = webdriver.ChromeOptions()
-options.page_load_strategy = "none"
-# options.add_argument("--headless=new")
-driver = Chrome(options=options)
+# Création d'une session pour maintenir la connexion
+session = requests.Session()
+# Effectuer la connexion
+login_response = session.get(login_url)
+login_soup = BeautifulSoup(login_response.content, "html.parser")
+# Extraire les paramètres nécessaires pour la soumission du formulaire
+execution_value = login_soup.find("input", {"name": "execution"})["value"]
+# Préparer les données pour la soumission du formulaire
+login_payload = {
+    "username": credentials["username"],
+    "password": credentials["password"],
+    "execution": execution_value,
+    "_eventId": "submit",
+    "geolocation": "",
+}
+
+##### A sup peut etre #####
+# # Charger la liste noire des extensions à partir du fichier
+# with open("blacklist.txt", "r") as file:
+#     blacklist = {line.strip() for line in file}
 
 
 # ------------------------ Fonctions utilitaires ------------------------
@@ -32,9 +42,8 @@ driver = Chrome(options=options)
 
 # Fonction pour récupérer le titre d'une page
 def get_page_title(url):
-    driver.get(url)
-    time.sleep(3)
-    page_soup = BeautifulSoup(driver.page_source, "html.parser")
+    response = session.get(url)
+    page_soup = BeautifulSoup(response.content, "html.parser")
     title_tag = page_soup.find("title")
     return title_tag.text if title_tag else "Titre non trouvé"
 
@@ -44,10 +53,10 @@ def get_page_title(url):
 
 # Fonction pour récupérer les liens d'une page avec filtrage
 def get_links(page_url):
-    driver.get(page_url)
-    time.sleep(3)
+    response = session.get(page_url)
+
     # Traitement de la page cible
-    index_page = BeautifulSoup(driver.page_source, "html.parser")
+    index_page = BeautifulSoup(response.content, "html.parser")
     links = index_page.find_all("a")
     result = []
 
@@ -83,11 +92,10 @@ def scrape_page(url, depth=0, source=None):
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
     print(url)
-    driver.get(url)
-    time.sleep(3)
-    content = BeautifulSoup(driver.page_source, "html.parser")
+    response = session.get(url)
+    content = BeautifulSoup(response.content, "html.parser")
     print(f"Nombre de mots : {word_count(content)[0]}")
-    # print(f"Nombre de couleurs différentes : {len(color_set(url, session))}")
+    print(f"Nombre de couleurs différentes : {len(color_set(url, session))}")
     print(f"Nombre d'éléments sur la page : {tag_count(content)}")
     # Scrapping de la page
     links = get_links(url)
@@ -118,34 +126,18 @@ def scrape_page(url, depth=0, source=None):
 
 # Initialiser l'ensemble des pages visitées
 visited_pages = set()
-
 # Soumettre le formulaire de connexion
-# URL de la page de connexion
-LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
-# URL de la page à scraper après la connexion
-TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
+response = session.post(login_url, data=login_payload)
 
-driver.get(TARGET_URL)
-time.sleep(3)
-# Find login elements
-username_field = driver.find_element(By.ID, "username")
-password_field = driver.find_element(By.ID, "password")
-login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
-
-# Input login credentials
-username_field.send_keys(credentials["username"])
-password_field.send_keys(credentials["password"])
-login_button.click()
-time.sleep(5)
 # Vérifier si la connexion a réussi
-if "Authentication failed" in driver.page_source:
+if "Authentication failed" in response.text:
     print("Échec de la connexion. Vérifiez vos identifiants.")
 else:
     # Scraper la page cible et ses liens en profondeur
-    scrape_page(TARGET_URL, 0, "Main page")
+    scrape_page(target_url, 0, "Main page")
 
 # Exporter le graphe au format GraphML
 nx.write_graphml(G, "graph.graphml")
 
 # Fermer la session
-driver.quit()
+session.close()

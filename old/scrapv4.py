@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from src.IC05_Project.login import credentials
+from src.login import credentials
 import networkx as nx
 import tldextract
 
