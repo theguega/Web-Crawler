@@ -71,6 +71,12 @@ def scrape_page(url, depth=0, source=None):
     # On ne traite pas les pages de fichiers (pdf, docx, zip, etc.)
     ##TODO
 
+    # Il faudrait éviter d'ajouter dans la liste des pages :
+    #   - les errors 404, 50x, etc
+    #   - les mailtos
+    #   - à compléter
+
+
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
 
