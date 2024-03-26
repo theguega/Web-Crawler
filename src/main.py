@@ -6,8 +6,8 @@ from selenium import webdriver
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from login import credentials
-from src.word_count import word_count
-from src.tag_count import tag_count
+from word_count import word_count
+from tag_count import tag_count
 
 
 # ---------------------- Préparations préliminaires ----------------------
@@ -17,7 +17,7 @@ from src.tag_count import tag_count
 G = nx.Graph()
 
 # Charger la liste noire des extensions à partir du fichier
-with open("blacklist.txt", "r") as file:
+with open("src/blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
 options = webdriver.ChromeOptions()
