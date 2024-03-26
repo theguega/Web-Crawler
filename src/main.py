@@ -30,11 +30,8 @@ driver = Chrome(options=options)
 
 
 # Fonction pour récupérer le titre d'une page
-def get_page_title(url):
-    driver.get(url)
-    time.sleep(3)
-    page_soup = BeautifulSoup(driver.page_source, "html.parser")
-    title_tag = page_soup.find("title")
+def get_page_title(parser):
+    title_tag = parser.find("title")
     return title_tag.text if title_tag else "Titre non trouvé"
 
 
@@ -42,12 +39,9 @@ def get_page_title(url):
 
 
 # Fonction pour récupérer les liens d'une page avec filtrage
-def get_links(page_url):
-    driver.get(page_url)
-    time.sleep(3)
+def get_links(parser, page_url):
     # Traitement de la page cible
-    index_page = BeautifulSoup(driver.page_source, "html.parser")
-    links = index_page.find_all("a")
+    links = parser.find_all("a")
     result = []
 
     # on recupere le lien absolu
@@ -75,39 +69,26 @@ def scrape_page(url, depth=0, source=None):
         return
 
     # On ne traite pas les pages de fichiers (pdf, docx, zip, etc.)
-    extension = url.split(".")[-1]
-    if extension in blacklist:
-        return
+    ##TODO
 
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
-    print(url)
+
     driver.get(url)
     time.sleep(3)
-    content = BeautifulSoup(driver.page_source, "html.parser")
-    print(f"Nombre de mots : {word_count(content)[0]}")
-    # print(f"Nombre de couleurs différentes : {len(color_set(url, session))}")
-    print(f"Nombre d'éléments sur la page : {tag_count(content)}")
-    # Scrapping de la page
-    links = get_links(url)
+    parser = BeautifulSoup(driver.page_source, "html.parser")
 
-    # Affichage de la page
-    """
-    title = get_page_title(url)
-    print("Informations sur la page : ")
-    print(f"Profondeur : from [{source}] -> [{depth}]")
-    print(f"Url : [{url}]")
-    print(f"Titre : [{title}]")
-    print(f"Nombre de liens : [{len(links)}]")
-    print(f"Extension : {extension}\n")
-    print("\n\n\n------------------------\n\n\n")
-    """
-    # Ajout de tous les liens présents sur la page dans notre graph
-    for link in links:
-        G.add_edge(url, link)
-        # print(f"    - {link}")
+    # Appel des différentes fonctions de traitement
+    links = get_links(parser, url)
+    title = get_page_title(parser)
+    words = word_count(parser)
+    tags = tag_count(parser)
 
-    # Scraper les pages liées en profondeur si elles n'ont pas déjà été visitées
+    print(
+        f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} balises)"
+    )
+
+    # Appel récursif pour les pages en dessous
     for link in links:
         scrape_page(link, depth + 1, url)
 
@@ -125,7 +106,8 @@ LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
 TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
 
 driver.get(TARGET_URL)
-time.sleep(3)
+driver.implicitly_wait(2)
+
 # Find login elements
 username_field = driver.find_element(By.ID, "username")
 password_field = driver.find_element(By.ID, "password")
@@ -135,13 +117,13 @@ login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 username_field.send_keys(credentials["username"])
 password_field.send_keys(credentials["password"])
 login_button.click()
-time.sleep(5)
+
 # Vérifier si la connexion a réussi
 if "Authentication failed" in driver.page_source:
     print("Échec de la connexion. Vérifiez vos identifiants.")
 else:
     # Scraper la page cible et ses liens en profondeur
-    scrape_page(TARGET_URL, 0, "Main page")
+    scrape_page(TARGET_URL, 0)
 
 # Exporter le graphe au format GraphML
 nx.write_graphml(G, "graph.graphml")
