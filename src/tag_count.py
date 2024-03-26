@@ -7,7 +7,6 @@ def tag_count(content: bs4.BeautifulSoup) -> int | None:
     try:
         body = content.body
         if body:
-            print(f"nb balises : {len(body.find_all())}")
             return len(list(body.descendants))
         return None
     except Exception as e:

@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 import time
 import networkx as nx
+import os
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver import Chrome
@@ -33,6 +34,12 @@ driver = Chrome(options=options)
 def get_page_title(parser):
     title_tag = parser.find("title")
     return title_tag.text if title_tag else "Titre non trouvé"
+
+def get_extension():
+    driver.current_url
+    driver.implicitly_wait(2)
+    extension = os.path.splitext(driver.current_url)[1]
+    return extension
 
 
 # ------------------------ Fonctions de scrapping ------------------------
@@ -68,9 +75,6 @@ def scrape_page(url, depth=0, source=None):
     if "https://webapplis.utc.fr" not in url:
         return
 
-    # On ne traite pas les pages de fichiers (pdf, docx, zip, etc.)
-    ##TODO
-
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
 
@@ -79,10 +83,16 @@ def scrape_page(url, depth=0, source=None):
     parser = BeautifulSoup(driver.page_source, "html.parser")
 
     # Appel des différentes fonctions de traitement
-    links = get_links(parser, url)
+    extension = get_extension()
     title = get_page_title(parser)
+
+    print(extension)
+
+    links = get_links(parser, url)
     words = word_count(parser)
     tags = tag_count(parser)
+
+    print(links)
 
     print(
         f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} balises)"
@@ -105,8 +115,9 @@ LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
 # URL de la page à scraper après la connexion
 TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
 
-driver.get(TARGET_URL)
 driver.implicitly_wait(2)
+driver.get(TARGET_URL)
+time.sleep(3)
 
 # Find login elements
 username_field = driver.find_element(By.ID, "username")
@@ -117,6 +128,7 @@ login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 username_field.send_keys(credentials["username"])
 password_field.send_keys(credentials["password"])
 login_button.click()
+time.sleep(3)
 
 # Vérifier si la connexion a réussi
 if "Authentication failed" in driver.page_source:
