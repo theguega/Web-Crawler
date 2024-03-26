@@ -23,7 +23,7 @@ with open("blacklist.txt", "r") as file:
 
 options = webdriver.ChromeOptions()
 options.page_load_strategy = "none"
-# options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 
