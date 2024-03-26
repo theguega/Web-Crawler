@@ -5,9 +5,9 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
-from src.login import credentials
-from src.word_count import word_count
-from src.tag_count import tag_count
+from login import credentials
+from word_count import word_count
+from tag_count import tag_count
 
 
 # ---------------------- Préparations préliminaires ----------------------
