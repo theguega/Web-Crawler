@@ -1,4 +1,3 @@
-import time
 import networkx as nx
 import os
 from bs4 import BeautifulSoup
@@ -13,6 +12,8 @@ from login import credentials
 from word_count import word_count
 from tag_count import tag_count
 
+import time
+
 
 # ---------------------- Préparations préliminaires ----------------------
 
@@ -25,8 +26,7 @@ with open("blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
 options = webdriver.ChromeOptions()
-#options.page_load_strategy = "none"
-options.add_argument("--headless=new")
+#options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 
@@ -36,11 +36,31 @@ driver = Chrome(options=options)
 # Fonction pour récupérer le titre d'une page
 def get_page_title(parser):
     title_tag = parser.find("title")
-    return title_tag.text if title_tag else "Titre non trouvé"
+    return title_tag.text if title_tag else "None"
 
-def get_extension():
-    extension = os.path.splitext(driver.current_url)[1]
+def get_extension(url):
+    # Trouver la dernière occurrence du caractère '.' dans l'URL
+    dot_index = url.rfind('.')
+    
+    # Si aucun '.' n'est trouvé dans l'URL, c'est une page html
+    if dot_index == -1:
+        print(url)
+        return "html"
+    
+    # Extraire l'extension du fichier en utilisant le reste de l'URL après le dernier '.'
+    extension = url[dot_index + 1:]
+
+    # Si l'extension contient un '/', c'est une page html
+    if '/' in extension:
+        extension = "html"
+    
+    # Si l'extension contient des paramètres de requête, les supprimer
+    if '?' in extension:
+        extension = extension[:extension.index('?')]
+        return "jsf"
+    
     return extension
+
 
 
 # ------------------------ Fonctions de scrapping ------------------------
@@ -55,69 +75,96 @@ def get_links(parser, page_url):
     # on recupere le lien absolu
     for link in links:
         href = link.get("href")
-        if href and (href[0] != "#") and ("null" not in href):
+        if href and (href[0] != "#") and not href.startswith("mailto:") and not href.startswith("tel:"):
             # si le lien est relatif
             if ("http" or "https") not in href:
                 full_link = urljoin(page_url, href)
-                result.append(full_link)
+                #distinction site interne / externe à l'ent
+                if "https://webapplis.utc.fr" not in full_link:
+                    result.append((full_link,0))
+                else:
+                    result.append((full_link,1))
             # sinon
             else:
-                result.append(href)
+                #distinction site interne / externe à l'ent
+                if "https://webapplis.utc.fr" not in href:
+                    result.append((href,0))
+                else:
+                    result.append((href,1))
     return result
 
 
 # Fonction pour scraper les pages en profondeur
 def scrape_page(url, depth=0, source=None):
-    # Vérifier si la page a déjà été visitée
+    # Si la page à déjà été visitée, on ne la traite pas
     if url in visited_pages:
         return
     
+    # provisoir pur les tests
     if depth > 2 :
+        print("depth > 2")
         return
+    
+    # Ajouter la page à la liste des pages visitées
+    visited_pages.add(url)
+    
+    #on récupère les infos de la page pour ajouter un noeud au graphe
+    extension = get_extension(url)
+    print(extension)
+    if extension == None:
+        print("Extension None")
+        time.sleep(5000)
+    if url == None:
+        print("url None")
+        time.sleep(5000) 
+    if depth == None:
+        print("depth None")
+        time.sleep(5000)   
+    G.add_node(url, extension=extension, depth=depth)
 
+    # Scrapping de la page ----------------------------------------------
     # On ne traite que les pages de l'ENT
     if "https://webapplis.utc.fr" not in url:
         return
-    
-    extension = get_extension()
+    #On ne scrap pas les pdf, docx etc..
     if extension in blacklist:
         return
 
-
-    # On ne traite pas les pages de fichiers (pdf, docx, zip, etc.)
-    ##TODO
-
-    # Il faudrait éviter d'ajouter dans la liste des pages :
-    #   - les errors 404, 50x, etc
-    #   - les mailtos
-    #   - à compléter
-
-
-
-    # Ajouter la page à la liste des pages visitées
-    visited_pages.add(url)
-
+    # Si la page n'a pas de titre, on ne la traite pas
+    if not driver.title or driver.title == "404 Not Found":
+        return
+    
     driver.get(url)
     parser = BeautifulSoup(driver.page_source, "html.parser")
-
-    # Appel des différentes fonctions de traitement
+    
     title = get_page_title(parser)
-    links = get_links(parser, url)
+    links = get_links(parser, url) # retourne une liste de tuple (url, internal) ave internal = 1 si le lien est interne à l'ent
     words = word_count(parser)
     tags = tag_count(parser)
 
 
     # Ajout des données dans le graph
+    if words[0] == None:
+        print("words None")
+        time.sleep(5000)
+    if tags == None:
+        print("tags None")
+        time.sleep(5000)
+    if title == None:
+        print("title None")
+        time.sleep(5000)
     G.add_node(url, title=title, extension=extension, word_count=words[0], tag_count=tags, depth=depth)
     if source:
+        if source == None:
+            print("source None")
+            time.sleep(5000)
         G.add_edge(source, url)
 
-
-    print(f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} éléments)")
+    #print(f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} balises)")
 
     # Appel récursif pour les pages en dessous
     for link in links:
-        scrape_page(link, depth + 1, url)
+        scrape_page(link[0], depth + 1, url)
 
 
 # ------------------------ Connexion + Scrapping ------------------------
