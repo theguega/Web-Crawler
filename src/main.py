@@ -161,6 +161,7 @@ driver.get(TARGET_URL)
 username_field = driver.find_element(By.ID, "username")
 password_field = driver.find_element(By.ID, "password")
 login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
+driver.maximize_window()
 
 # Input login credentials
 username_field.send_keys(credentials["username"])
