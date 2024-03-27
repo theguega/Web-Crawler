@@ -1,7 +1,6 @@
-import networkx as nx
-import os
-from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import networkx as nx
+from bs4 import BeautifulSoup
 
 from selenium import webdriver
 from selenium.webdriver import Chrome
@@ -11,8 +10,6 @@ from login import credentials
 
 from word_count import word_count
 from tag_count import tag_count
-
-import time
 
 
 # ---------------------- Préparations préliminaires ----------------------
