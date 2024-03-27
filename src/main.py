@@ -12,6 +12,8 @@ from login import credentials
 from word_count import word_count
 from tag_count import tag_count
 
+import time
+
 
 # ---------------------- Préparations préliminaires ----------------------
 
@@ -34,27 +36,27 @@ driver = Chrome(options=options)
 # Fonction pour récupérer le titre d'une page
 def get_page_title(parser):
     title_tag = parser.find("title")
-    return title_tag.text if title_tag else "Titre non trouvé"
+    return title_tag.text if title_tag else "None"
 
 def get_extension(url):
-    if url[-1] == '/':
-        return "htlm"
-    
     # Trouver la dernière occurrence du caractère '.' dans l'URL
     dot_index = url.rfind('.')
     
-    # Si aucun '.' n'est trouvé dans l'URL, renvoyer une chaîne vide
+    # Si aucun '.' n'est trouvé dans l'URL, c'est une page html
     if dot_index == -1:
-        return ""
+        print(url)
+        return "html"
     
     # Extraire l'extension du fichier en utilisant le reste de l'URL après le dernier '.'
     extension = url[dot_index + 1:]
+
+    # Si l'extension contient un '/', c'est une page html
+    if '/' in extension:
+        extension = "html"
     
     # Si l'extension contient des paramètres de requête, les supprimer
     if '?' in extension:
         extension = extension[:extension.index('?')]
-
-    if "jsf" in extension:
         return "jsf"
     
     return extension
@@ -109,6 +111,15 @@ def scrape_page(url, depth=0, source=None):
     #on récupère les infos de la page pour ajouter un noeud au graphe
     extension = get_extension(url)
     print(extension)
+    if extension == None:
+        print("Extension None")
+        time.sleep(5000)
+    if url == None:
+        print("url None")
+        time.sleep(5000) 
+    if depth == None:
+        print("depth None")
+        time.sleep(5000)   
     G.add_node(url, extension=extension, depth=depth)
 
     # Scrapping de la page ----------------------------------------------
@@ -132,8 +143,20 @@ def scrape_page(url, depth=0, source=None):
     tags = tag_count(parser)
 
     # Ajout des données dans le graph
+    if words[0] == None:
+        print("words None")
+        time.sleep(5000)
+    if tags == None:
+        print("tags None")
+        time.sleep(5000)
+    if title == None:
+        print("title None")
+        time.sleep(5000)
     G.add_node(url, title=title, extension=extension, word_count=words[0], tag_count=tags, depth=depth)
     if source:
+        if source == None:
+            print("source None")
+            time.sleep(5000)
         G.add_edge(source, url)
 
     #print(f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} balises)")
