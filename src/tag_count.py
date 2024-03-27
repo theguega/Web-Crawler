@@ -8,10 +8,10 @@ def tag_count(content: bs4.BeautifulSoup) -> int | None:
         body = content.body
         if body:
             return len(list(body.descendants))
-        return None
+        return 0
     except Exception as e:
         print("La requête a échoué avec le code :", e)
-        return None
+        return 0
 
 
 # # Pour tester
