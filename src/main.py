@@ -22,11 +22,11 @@ import time
 G = nx.Graph()
 
 # Charger la liste noire des extensions à partir du fichier
-with open("blacklist.txt", "r") as file:
+with open("src/blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
 options = webdriver.ChromeOptions()
-#options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 
@@ -110,17 +110,10 @@ def scrape_page(url, depth=0, source=None):
     
     #on récupère les infos de la page pour ajouter un noeud au graphe
     extension = get_extension(url)
-    print(extension)
-    if extension == None:
-        print("Extension None")
-        time.sleep(5000)
-    if url == None:
-        print("url None")
-        time.sleep(5000) 
-    if depth == None:
-        print("depth None")
-        time.sleep(5000)   
+    print(f"{'  ' * depth} - {url} extension : {extension}")
     G.add_node(url, extension=extension, depth=depth)
+    if source:
+        G.add_edge(source, url)
 
     # Scrapping de la page ----------------------------------------------
     # On ne traite que les pages de l'ENT
@@ -144,23 +137,7 @@ def scrape_page(url, depth=0, source=None):
 
 
     # Ajout des données dans le graph
-    if words[0] == None:
-        print("words None")
-        time.sleep(5000)
-    if tags == None:
-        print("tags None")
-        time.sleep(5000)
-    if title == None:
-        print("title None")
-        time.sleep(5000)
     G.add_node(url, title=title, extension=extension, word_count=words[0], tag_count=tags, depth=depth)
-    if source:
-        if source == None:
-            print("source None")
-            time.sleep(5000)
-        G.add_edge(source, url)
-
-    #print(f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} balises)")
 
     # Appel récursif pour les pages en dessous
     for link in links:
