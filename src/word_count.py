@@ -2,7 +2,7 @@ import bs4
 from bs4 import Comment
 
 
-def word_count(content: bs4.BeautifulSoup) -> tuple[int, list[str]] | tuple[None, None]:
+def word_count(content: bs4.BeautifulSoup) -> tuple[int, list[str]] | tuple[int, None]:
     def tag_visible(element: bs4.Tag) -> bool:
         if (
             element.parent.name
@@ -35,7 +35,7 @@ def word_count(content: bs4.BeautifulSoup) -> tuple[int, list[str]] | tuple[None
         return count, visible_words
     except Exception as e:
         print("Failed to retrieve the webpage:", e)
-        return None, None
+        return 0, None
 
 
 # # Pour tester
