@@ -21,12 +21,12 @@ from tag_count import tag_count
 G = nx.Graph()
 
 # Charger la liste noire des extensions à partir du fichier
-with open("src/blacklist.txt", "r") as file:
+with open("blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
 options = webdriver.ChromeOptions()
-options.page_load_strategy = "none"
-#options.add_argument("--headless=new")
+#options.page_load_strategy = "none"
+options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 
@@ -39,8 +39,6 @@ def get_page_title(parser):
     return title_tag.text if title_tag else "Titre non trouvé"
 
 def get_extension():
-    driver.current_url
-    driver.implicitly_wait(2)
     extension = os.path.splitext(driver.current_url)[1]
     return extension
 
@@ -89,7 +87,6 @@ def scrape_page(url, depth=0, source=None):
     visited_pages.add(url)
 
     driver.get(url)
-    time.sleep(3)
     parser = BeautifulSoup(driver.page_source, "html.parser")
 
     # Appel des différentes fonctions de traitement
@@ -98,13 +95,14 @@ def scrape_page(url, depth=0, source=None):
     words = word_count(parser)
     tags = tag_count(parser)
 
+
     # Ajout des données dans le graph
     G.add_node(url, title=title, extension=extension, word_count=words[0], tag_count=tags, depth=depth)
     if source:
         G.add_edge(source, url)
 
 
-    print(f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} balises)")
+    print(f"{'  ' * depth} - {title} ({len(links)} liens, {words[0]} mots, {tags} éléments)")
 
     # Appel récursif pour les pages en dessous
     for link in links:
@@ -123,9 +121,8 @@ LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
 # URL de la page à scraper après la connexion
 TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
 
-driver.implicitly_wait(2)
+driver.implicitly_wait(5)
 driver.get(TARGET_URL)
-time.sleep(3)
 
 # Find login elements
 username_field = driver.find_element(By.ID, "username")
@@ -136,7 +133,6 @@ login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
 username_field.send_keys(credentials["username"])
 password_field.send_keys(credentials["password"])
 login_button.click()
-time.sleep(3)
 
 # Vérifier si la connexion a réussi
 if "Authentication failed" in driver.page_source:

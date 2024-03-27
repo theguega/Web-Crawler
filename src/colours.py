@@ -7,7 +7,7 @@ from skimage.color import rgb2lab, deltaE_ciede2000
 import numpy as np
 
 
-def color_set(url: str, session: requests.Session) -> set[str]:
+def color_set(url: str, parser, driver) -> set[str]:
     def full_hex_color(hex_color: str) -> str:
         hex_color = hex_color.lstrip("#")
         if len(hex_color) == 3:
@@ -27,10 +27,9 @@ def color_set(url: str, session: requests.Session) -> set[str]:
         ]
         return min(distances) if distances else float("inf")
 
-    soup = BeautifulSoup(session.get(url).content, "html.parser")
     base_url = urlparse(url).scheme + "://" + urlparse(url).netloc
-    style_tags = soup.find_all("style")
-    link_tags = soup.find_all("link", rel="stylesheet")
+    style_tags = parser.find_all("style")
+    link_tags = parser.find_all("link", rel="stylesheet")
 
     # Extraction des couleurs à partir des éléments CSS
     colors: set[str] = set()
@@ -42,7 +41,7 @@ def color_set(url: str, session: requests.Session) -> set[str]:
             # Si le style est défini dans un fichier externe
             elif tag.name == "link":
                 css_url = urljoin(base_url, tag.get("href"))
-                style_content = session.get(css_url).text
+                style_content = driver.get(css_url).text
 
             # Extraction des couleurs avec une expression régulière
             color_matches = re.findall(r"#[0-9a-fA-F]{3,6}", style_content)

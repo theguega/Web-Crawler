@@ -9,32 +9,31 @@ from Screenshot import Screenshot
 from selenium import webdriver
 import time
 from playwright.sync_api import sync_playwright
+from selenium.webdriver.common.by import By
+from selenium import webdriver
 
-def scrollFullPage(page):
-    totalHeight = page.evaluate('document.body.scrollHeight')
-    distance = 100
-    while True:
-        page.evaluate(f'window.scrollBy(0, {distance})')
-        totalHeight -= distance
-        if totalHeight <= 0:
-            break
-def run(playwright):
-    # launch the browser
-    browser = playwright.chromium.launch()
-    # opens a new browser page
-    page = browser.new_page()
-    # navigate to the website
-    page.goto('https://utc.fr/')
-    scrollFullPage(page)
-    # take a full-page screenshot
-    page.wait_for_timeout(5000)
-    page.screenshot(path='example.png', full_page=True, scale='css')
+# Initialize Selenium WebDriver (you may need to install a WebDriver executable)
+driver = webdriver.Chrome()  # Change this to your preferred WebDriver
 
-    # always close the browser
-    browser.close()
+# Navigate to the web page
+driver.get("https://example.com")  # Replace this with the URL of the web page you want to analyze
 
-with sync_playwright() as playwright:
-    run(playwright)
+# Get the total area of the web page
+total_area = driver.execute_script("return document.body.scrollHeight * document.body.scrollWidth")
+print(total_area)
+# Get the total area covered by elements
+for element in driver.find_elements(By.XPATH, "//*"):
+    print(element.tag_name)
+element_areas = sum(element.size['width'] * element.size['height'] for element in driver.find_elements(By.XPATH, "//div"))
+# You may need to refine the XPath expression to only include visible elements
+
+# Calculate the percentage of empty space
+empty_space_percentage = ((total_area - element_areas) / total_area) * 100
+
+print("Percentage of empty space:", empty_space_percentage)
+
+# Close the WebDriver
+driver.quit()
 
 # def reduce_image(image, taille):
 #     # Retrancher le reste de la division par 4 du nombre de lignes et de colonnes
