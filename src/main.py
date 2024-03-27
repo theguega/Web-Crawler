@@ -31,11 +31,11 @@ driver = Chrome(options=options)
 
 
 # Fonction pour récupérer le titre d'une page
-def get_page_title(parser):
+def get_page_title(parser : BeautifulSoup) -> str:
     title_tag = parser.find("title")
     return title_tag.text if title_tag else "None"
 
-def get_extension(url):
+def get_extension(url : str) -> str:
     # Trouver la dernière occurrence du caractère '.' dans l'URL
     dot_index = url.rfind('.')
     
@@ -64,7 +64,8 @@ def get_extension(url):
 
 
 # Fonction pour récupérer les liens d'une page avec filtrage
-def get_links(parser, page_url):
+def get_links(parser : BeautifulSoup, page_url : str) -> list[tuple[str, int]]: 
+    # retourne une liste de tuple (url, internal) ave internal = 1 si le lien est interne à l'ent
     # Traitement de la page cible
     links = parser.find_all("a")
     result = []
@@ -92,7 +93,7 @@ def get_links(parser, page_url):
 
 
 # Fonction pour scraper les pages en profondeur
-def scrape_page(url, depth=0, source=None):
+def scrape_page(url : str, depth=0, source=None) -> None:
     # Si la page à déjà été visitée, on ne la traite pas
     if url in visited_pages:
         return
@@ -128,7 +129,7 @@ def scrape_page(url, depth=0, source=None):
     parser = BeautifulSoup(driver.page_source, "html.parser")
     
     title = get_page_title(parser)
-    links = get_links(parser, url) # retourne une liste de tuple (url, internal) ave internal = 1 si le lien est interne à l'ent
+    links = get_links(parser, url)
     words = word_count(parser)
     tags = tag_count(parser)
 
