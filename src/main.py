@@ -41,7 +41,6 @@ def get_extension(url : str) -> str:
     
     # Si aucun '.' n'est trouvé dans l'URL, c'est une page html
     if dot_index == -1:
-        print(url)
         return "html"
     
     # Extraire l'extension du fichier en utilisant le reste de l'URL après le dernier '.'
@@ -65,7 +64,7 @@ def get_extension(url : str) -> str:
 
 # Fonction pour récupérer les liens d'une page avec filtrage
 def get_links(parser : BeautifulSoup, page_url : str) -> list[tuple[str, int]]: 
-    # retourne une liste de tuple (url, internal) ave internal = 1 si le lien est interne à l'ent
+    # retourne une liste de tuple (url, internal) avec internal = 1 si le lien est interne à l'ent
     # Traitement de la page cible
     links = parser.find_all("a")
     result = []
@@ -93,27 +92,24 @@ def get_links(parser : BeautifulSoup, page_url : str) -> list[tuple[str, int]]:
 
 
 # Fonction pour scraper les pages en profondeur
-def scrape_page(url : str, depth=0, source=None) -> None:
+def scrape_page(url : str, depth:int=0, source:str=None) -> None:
     # Si la page à déjà été visitée, on ne la traite pas
     if url in visited_pages:
         return
     
-    # provisoir pur les tests
-    if depth > 2 :
-        print("depth > 2")
-        return
-    
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
+    global nb
+    nb+=1
+    print(nb, "pages scrappés")
     
     #on récupère les infos de la page pour ajouter un noeud au graphe
     extension = get_extension(url)
-    print(f"{'  ' * depth} - {url} extension : {extension}")
+    #print(f"{'  ' * depth} - {url} extension : {extension}")
     G.add_node(url, extension=extension, depth=depth)
     if source:
         G.add_edge(source, url)
 
-    # Scrapping de la page ----------------------------------------------
     # On ne traite que les pages de l'ENT
     if "https://webapplis.utc.fr" not in url:
         return
@@ -139,14 +135,18 @@ def scrape_page(url : str, depth=0, source=None) -> None:
 
     # Appel récursif pour les pages en dessous
     for link in links:
-        scrape_page(link[0], depth + 1, url)
+        scrape_page(url=link[0], depth=depth + 1, source=url)
 
 
 # ------------------------ Connexion + Scrapping ------------------------
 
 
 # Initialiser l'ensemble des pages visitées
+global visited_pages
+global nb
+
 visited_pages = set()
+nb=0
 
 # Soumettre le formulaire de connexion
 # URL de la page de connexion
@@ -173,7 +173,7 @@ if "Authentication failed" in driver.page_source:
     print("Échec de la connexion. Vérifiez vos identifiants.")
 else:
     # Scraper la page cible et ses liens en profondeur
-    scrape_page(TARGET_URL, 0)
+    scrape_page(url=TARGET_URL, depth=0)
 
 # Exporter le graphe au format GraphML
 nx.write_graphml(G, "graph.graphml")
