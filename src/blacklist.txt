@@ -17,3 +17,5 @@ xhtml
 jpg
 png
 show
+PNG
+exe
