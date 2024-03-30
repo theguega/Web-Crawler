@@ -68,14 +68,14 @@ def get_links(parser: BeautifulSoup, page_url: str) -> list[tuple[str, int]]:
             if ("http" or "https") not in href:
                 full_link = urljoin(page_url, href)
                 # distinction site interne / externe à l'ent
-                if "https://webapplis.utc.fr" not in full_link:
+                if BASE_LINK not in full_link:
                     result.append((format_url(full_link), 0))
                 else:
                     result.append((format_url(full_link), 1))
             # sinon
             else:
                 # distinction site interne / externe à l'ent
-                if "https://webapplis.utc.fr" not in href:
+                if BASE_LINK not in href:
                     result.append((format_url(href), 0))
                 else:
                     result.append((format_url(href), 1))
@@ -95,13 +95,9 @@ def scrape_page(url: str, depth: int = 0) -> None:
     global nb
     nb += 1
     print(nb, "pages scrappés, page actuelle : ", url)
-    if not(nb%500):
-        print("Export du graphe")
-        nx.write_graphml(G, "ent.graphml")
-        print("Graph exporté avec succès.")
 
     # On ne traite que les pages de l'ENT
-    if "https://webapplis.utc.fr" not in url:
+    if BASE_LINK not in url:
         return
 
     extension = get_extension(url)
@@ -110,18 +106,20 @@ def scrape_page(url: str, depth: int = 0) -> None:
     if extension in blacklist:
         return
 
-    #Scrapping
+    # Scrapping
     driver.get(url)
     parser = BeautifulSoup(driver.page_source, "html.parser")
     links = get_links(parser, url)
 
     if len(links) == 0:
         return
-    
+
     # Si la page est scrappable, on ajoute d'autres infos dans le graphe
-    words = word_count(parser)
+    words = word_count(parser)[0]
     tags = tag_count(parser)
-    G.add_node(url,title=driver.title, nb_words=words, nb_tags=tags, nb_links=len(links)) #add_note ne créer pas de doublon mais va actualiser les valeurs si le noeud existe déjà
+    G.add_node(
+        url, title=driver.title, nb_words=words, nb_tags=tags, nb_links=len(links)
+    )  # add_note ne créer pas de doublon mais va actualiser les valeurs si le noeud existe déjà
 
     # Appel récursif pour les pages en dessous
     for link in links:
@@ -129,6 +127,7 @@ def scrape_page(url: str, depth: int = 0) -> None:
         G.add_node(url, extension=extension, depth=depth, internal=link[1])
         G.add_edge(url, format_url(link[0]))
         scrape_page(link[0], depth + 1)
+
 
 # ---------------------- Préparations préliminaires ----------------------
 
@@ -143,19 +142,20 @@ with open("src/blacklist.txt", "r") as file:
 global visited_pages
 visited_pages = set()
 global nb
-nb=0
+nb = 0
 
 # ------------------------ Connexion ------------------------
 
 options = webdriver.ChromeOptions()
-#options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
-# Soumettre le formulaire de connexion
-# URL de la page de connexion
+#BASE_LINK = "https://www.ecoindex.fr"
+BASE_LINK= "https://webapplis.utc.fr"
 LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
-# URL de la page à scraper après la connexion
 TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
+
+#"""
 
 driver.implicitly_wait(5)
 driver.get(TARGET_URL)
@@ -171,6 +171,7 @@ username_field.send_keys(credentials["username"])
 password_field.send_keys(credentials["password"])
 login_button.click()
 
+#"""
 
 # ------------------------ Scrapping ------------------------
 

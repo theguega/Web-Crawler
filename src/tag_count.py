@@ -1,7 +1,7 @@
 import bs4
 
 
-def tag_count(content: bs4.BeautifulSoup) -> int | None:
+def tag_count(content: bs4.BeautifulSoup) -> int:
     try:
         body = content.body
         if body:
