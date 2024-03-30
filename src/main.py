@@ -118,13 +118,22 @@ def scrape_page(url: str, depth: int = 0) -> None:
     words = word_count(parser)[0]
     tags = tag_count(parser)
     G.add_node(
-        url, title=driver.title, nb_words=words, nb_tags=tags, nb_links=len(links)
+        url,
+        title=driver.title,
+        nb_words=words,
+        nb_tags=tags,
+        nb_links=len(links),
+        depth=depth,
+        internal=1,
+        extension=extension,
     )  # add_note ne créer pas de doublon mais va actualiser les valeurs si le noeud existe déjà
 
     # Appel récursif pour les pages en dessous
     for link in links:
         extension = get_extension(link[0])
-        G.add_node(format_url(link[0]), extension=extension, depth=depth, internal=link[1])
+        G.add_node(
+            format_url(link[0]), extension=extension, depth=depth, internal=link[1]
+        )
         G.add_edge(url, format_url(link[0]))
         scrape_page(link[0], depth + 1)
 
@@ -150,12 +159,12 @@ options = webdriver.ChromeOptions()
 options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
-#BASE_LINK = "https://www.ecoindex.fr"
-BASE_LINK= "https://webapplis.utc.fr"
+# BASE_LINK = "https://www.ecoindex.fr"
+BASE_LINK = "https://webapplis.utc.fr"
 LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
 TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
 
-#"""
+# """
 
 driver.implicitly_wait(5)
 driver.get(TARGET_URL)
@@ -171,7 +180,7 @@ username_field.send_keys(credentials["username"])
 password_field.send_keys(credentials["password"])
 login_button.click()
 
-#"""
+# """
 
 # ------------------------ Scrapping ------------------------
 
