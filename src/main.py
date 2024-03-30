@@ -124,7 +124,7 @@ def scrape_page(url: str, depth: int = 0) -> None:
     # Appel récursif pour les pages en dessous
     for link in links:
         extension = get_extension(link[0])
-        G.add_node(url, extension=extension, depth=depth, internal=link[1])
+        G.add_node(format_url(link[0]), extension=extension, depth=depth, internal=link[1])
         G.add_edge(url, format_url(link[0]))
         scrape_page(link[0], depth + 1)
 
@@ -133,7 +133,7 @@ def scrape_page(url: str, depth: int = 0) -> None:
 
 
 # Créer un graphe NetworkX
-G = nx.Graph()
+G = nx.DiGraph()
 
 # Charger la liste noire des extensions à partir du fichier
 with open("src/blacklist.txt", "r") as file:
