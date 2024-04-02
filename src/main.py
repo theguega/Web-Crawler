@@ -83,7 +83,7 @@ def get_links(parser: BeautifulSoup, page_url: str) -> list[tuple[str, int]]:
 
 
 # Fonction pour scraper les pages en profondeur
-def scrape_page(url: str, depth: int = 0) -> None:
+def scrape_page(url: str) -> None:
     url = format_url(url)
     # Si la page à déjà été visitée, on ne la traite pas
     if url in visited_pages:
@@ -123,7 +123,6 @@ def scrape_page(url: str, depth: int = 0) -> None:
         nb_words=words,
         nb_tags=tags,
         nb_links=len(links),
-        depth=depth,
         internal=1,
         extension=extension,
     )  # add_note ne créer pas de doublon mais va actualiser les valeurs si le noeud existe déjà
@@ -132,10 +131,10 @@ def scrape_page(url: str, depth: int = 0) -> None:
     for link in links:
         extension = get_extension(link[0])
         G.add_node(
-            format_url(link[0]), extension=extension, depth=depth, internal=link[1]
+            format_url(link[0]), extension=extension, internal=link[1]
         )
         G.add_edge(url, format_url(link[0]))
-        scrape_page(link[0], depth + 1)
+        scrape_page(link[0])
 
 
 # ---------------------- Préparations préliminaires ----------------------
@@ -156,7 +155,7 @@ nb = 0
 # ------------------------ Connexion ------------------------
 
 options = webdriver.ChromeOptions()
-options.add_argument("--headless=new")
+#options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 # BASE_LINK = "https://www.ecoindex.fr"
@@ -189,7 +188,7 @@ if "Authentication failed" in driver.page_source:
     print("Échec de la connexion. Vérifiez vos identifiants.")
 else:
     # Scraper la page cible et ses liens en profondeur
-    scrape_page(url=TARGET_URL, depth=0)
+    scrape_page(url=TARGET_URL)
 
 # Exporter le graphe au format GraphML
 print("Export du graphe")
