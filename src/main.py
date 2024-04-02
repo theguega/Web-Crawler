@@ -8,8 +8,8 @@ from selenium.webdriver.common.by import By
 
 from login import credentials
 
-from word_count import word_count
-from tag_count import tag_count
+from tools.word_count import word_count
+from tools.tag_count import tag_count
 
 
 # ------------------------ Fonctions utilitaires ------------------------
