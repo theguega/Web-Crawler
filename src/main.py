@@ -44,6 +44,12 @@ def format_url(url: str) -> str:
     return url
 
 
+def calculate_shortest_paths(source_node, graph):
+    shortest_paths_length = nx.single_source_shortest_path_length(graph, source_node)
+    # Ajouter l'attribut contenant la longueur du plus court chemin à chaque nœud
+    nx.set_node_attributes(graph, shortest_paths_length, 'depth')
+
+
 # ------------------------ Fonctions de scrapping ------------------------
 
 
@@ -132,12 +138,6 @@ def scrape_page(url: str) -> None:
         scrape_page(link[0])
 
 
-def calculate_shortest_paths(source_node, graph):
-    shortest_paths_length = nx.single_source_shortest_path_length(graph, source_node)
-    # Ajouter l'attribut contenant la longueur du plus court chemin à chaque nœud
-    nx.set_node_attributes(graph, shortest_paths_length, 'depth')
-
-
 # ---------------------- Préparations préliminaires ----------------------
 
 
@@ -192,7 +192,7 @@ print("Traitement du graphe")
 calculate_shortest_paths(TARGET_URL, G)
 # Exporter le graphe au format GraphML
 print("Export du graphe")
-nx.write_graphml(G, "ent.graphml")
+nx.write_graphml(G, "graph/ent.graphml")
 print("Graph exporté avec succès.")
 # Fermer la session
 driver.quit()
