@@ -132,6 +132,12 @@ def scrape_page(url: str) -> None:
         scrape_page(link[0])
 
 
+def calculate_shortest_paths(source_node, graph):
+    shortest_paths_length = nx.single_source_shortest_path_length(graph, source_node)
+    # Ajouter l'attribut contenant la longueur du plus court chemin à chaque nœud
+    nx.set_node_attributes(graph, shortest_paths_length, 'depth')
+
+
 # ---------------------- Préparations préliminaires ----------------------
 
 
@@ -154,7 +160,6 @@ driver = Chrome(options=options)
 BASE_LINK = "https://webapplis.utc.fr"
 LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
 TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
-
 # """
 
 driver.implicitly_wait(5)
@@ -182,10 +187,12 @@ else:
     # Scraper la page cible et ses liens en profondeur
     scrape_page(url=TARGET_URL)
 
+# Traitement du graphe
+print("Traitement du graphe")
+calculate_shortest_paths(TARGET_URL, G)
 # Exporter le graphe au format GraphML
 print("Export du graphe")
 nx.write_graphml(G, "ent.graphml")
 print("Graph exporté avec succès.")
-
 # Fermer la session
 driver.quit()
