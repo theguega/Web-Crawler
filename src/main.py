@@ -41,8 +41,7 @@ def get_extension(url: str) -> str:
 def format_url(url: str) -> str:
     if url[-1] == "/":
         return url[:-1]
-    else:
-        return url
+    return url
 
 
 # ------------------------ Fonctions de scrapping ------------------------
@@ -128,9 +127,7 @@ def scrape_page(url: str) -> None:
     # Appel récursif pour les pages en dessous
     for link in links:
         extension = get_extension(link[0])
-        G.add_node(
-            format_url(link[0]), extension=extension, internal=link[1]
-        )
+        G.add_node(format_url(link[0]), extension=extension, internal=link[1])
         G.add_edge(url, format_url(link[0]))
         scrape_page(link[0])
 
@@ -142,7 +139,7 @@ def scrape_page(url: str) -> None:
 G = nx.DiGraph()
 
 # Charger la liste noire des extensions à partir du fichier
-with open("src/blacklist.txt", "r") as file:
+with open("src/blacklist.txt", "r", encoding="utf-8") as file:
     blacklist = {line.strip() for line in file}
 
 visited_pages = set()
@@ -150,7 +147,7 @@ visited_pages = set()
 # ------------------------ Connexion ------------------------
 
 options = webdriver.ChromeOptions()
-#options.add_argument("--headless=new")
+# options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 # BASE_LINK = "https://www.ecoindex.fr"
