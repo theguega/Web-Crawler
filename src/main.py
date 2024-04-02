@@ -92,9 +92,7 @@ def scrape_page(url: str) -> None:
     # Ajouter la page à la liste des pages visitées
     visited_pages.add(url)
 
-    global nb
-    nb += 1
-    print(nb, "pages scrappés, page actuelle : ", url)
+    print(G.number_of_nodes(), "pages scrappés, page actuelle : ", url)
 
     # On ne traite que les pages de l'ENT
     if BASE_LINK not in url:
@@ -147,10 +145,7 @@ G = nx.DiGraph()
 with open("src/blacklist.txt", "r") as file:
     blacklist = {line.strip() for line in file}
 
-global visited_pages
 visited_pages = set()
-global nb
-nb = 0
 
 # ------------------------ Connexion ------------------------
 
