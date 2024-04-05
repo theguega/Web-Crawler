@@ -1,5 +1,6 @@
 from urllib.parse import urljoin
 import networkx as nx
+import time
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
@@ -110,7 +111,11 @@ def scrape_page(url: str) -> None:
         return
 
     # Scrapping
+    start_time = time.time()
     driver.get(url)
+    end_time = time.time()
+    loading_time = end_time - start_time
+
     parser = BeautifulSoup(driver.page_source, "html.parser")
     links = get_links(parser, url)
 
@@ -128,7 +133,8 @@ def scrape_page(url: str) -> None:
         nb_links=len(links),
         internal=1,
         extension=extension,
-    )  # add_note ne créer pas de doublon mais va actualiser les valeurs si le noeud existe déjà
+        loading_time=loading_time,
+    )  # add_node ne crée pas de doublons mais va actualiser les valeurs si le noeud existe déjà
 
     # Appel récursif pour les pages en dessous
     for link in links:
@@ -145,7 +151,7 @@ def scrape_page(url: str) -> None:
 G = nx.DiGraph()
 
 # Charger la liste noire des extensions à partir du fichier
-with open("src/blacklist.txt", "r", encoding="utf-8") as file:
+with open("blacklist.txt", "r", encoding="utf-8") as file:
     blacklist = {line.strip() for line in file}
 
 visited_pages = set()
