@@ -6,8 +6,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from login import credentials
-from tools.word_count import word_count
-from tools.tag_count import tag_count
 
 
 class Scraper:
@@ -63,9 +61,8 @@ class Scraper:
         # Ajouter l'attribut contenant la longueur du plus court chemin à chaque nœud
         nx.set_node_attributes(graph, shortest_paths_length, "depth")
 
-
     @staticmethod
-    def word_count(
+    def __word_count(
         content: bs4.BeautifulSoup,
     ) -> tuple[int, list[str]] | tuple[int, None]:
         def tag_visible(element: bs4.element.NavigableString) -> bool:
@@ -96,7 +93,7 @@ class Scraper:
             return 0, None
 
     @staticmethod
-    def tag_count(content: bs4.BeautifulSoup) -> int:
+    def __tag_count(content: bs4.BeautifulSoup) -> int:
         try:
             body = content.body
             if body:
@@ -175,8 +172,8 @@ class Scraper:
             return
 
         # Si la page est scrappable, on ajoute d'autres infos dans le graphe
-        words = word_count(parser)[0]
-        tags = tag_count(parser)
+        words = self.__word_count(parser)[0]
+        tags = self.__tag_count(parser)
         self._graph.add_node(
             url,
             title=Scraper.driver.title,
