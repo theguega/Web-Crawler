@@ -4,7 +4,7 @@ import time
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
-from selenium.webdriver import Chrome
+from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.by import By
 
 from login import credentials
@@ -158,29 +158,30 @@ visited_pages = set()
 
 # ------------------------ Connexion ------------------------
 
-options = webdriver.ChromeOptions()
-# options.add_argument("--headless=new")
+#options = webdriver.ChromeOptions()
+options = ChromeOptions()
+#options.add_argument("--headless=new")
 driver = Chrome(options=options)
 
 # BASE_LINK = "https://www.ecoindex.fr"
-BASE_LINK = "https://webapplis.utc.fr"
+BASE_LINK = "https://www.amiraltechnologies.com"
 LOGIN_URL = "https://cas.utc.fr/cas/login.jsf"
-TARGET_URL = "https://webapplis.utc.fr/ent/index.jsf"
+TARGET_URL = "https://www.amiraltechnologies.com/"
 # """
 
 driver.implicitly_wait(5)
 driver.get(TARGET_URL)
 
-# Find login elements
-username_field = driver.find_element(By.ID, "username")
-password_field = driver.find_element(By.ID, "password")
-login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
-driver.maximize_window()
-
-# Input login credentials
-username_field.send_keys(credentials["username"])
-password_field.send_keys(credentials["password"])
-login_button.click()
+# # Find login elements
+# username_field = driver.find_element(By.ID, "username")
+# password_field = driver.find_element(By.ID, "password")
+# login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
+# driver.maximize_window()
+#
+# # Input login credentials
+# username_field.send_keys(credentials["username"])
+# password_field.send_keys(credentials["password"])
+# login_button.click()
 
 # """
 
@@ -195,10 +196,10 @@ else:
 
 # Traitement du graphe
 print("Traitement du graphe")
-calculate_shortest_paths(TARGET_URL, G)
+calculate_shortest_paths(BASE_LINK, G)
 # Exporter le graphe au format GraphML
 print("Export du graphe")
-nx.write_graphml(G, "graph/ent.graphml")
+nx.write_graphml(G, "amiral.graphml")
 print("Graph exporté avec succès.")
 # Fermer la session
 driver.quit()
