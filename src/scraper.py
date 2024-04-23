@@ -9,7 +9,7 @@ from page_stats import PageStats
 
 
 class Scraper:
-    with open("blacklist.txt", "r", encoding="utf-8") as file:
+    with open("src/blacklist.txt", "r", encoding="utf-8") as file:
         blacklist = {line.strip() for line in file}
     driver = webdriver.Chrome()
 
@@ -168,6 +168,6 @@ class Scraper:
         self.calculate_shortest_paths(self._target_url, self._graph)
         print("Export du graphe")
         nx.write_graphml(self._graph, "graph/ent.graphml")
-        print("Graph exporté avec succès.")
+        print("Graph exporté avec succès : graph/ent.graphml")
         Scraper.driver.quit()
         return self._graph
