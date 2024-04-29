@@ -32,7 +32,7 @@ class Scraper:
         self._login_button_xpath = login_button_xpath
         self._username = username
         self._password = password
-        self._visited_pages = set()
+        self._visited_pages: set[str] = set()
         self._graph = nx.DiGraph()
         self._page_stats = PageStats()
 
