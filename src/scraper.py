@@ -1,17 +1,32 @@
 import time
 from urllib.parse import urljoin
 import networkx as nx
-import bs4
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import requests
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from page_stats import PageStats
 
 
 class Scraper:
-    with open("src/blacklist.txt", "r", encoding="utf-8") as file:
+    # Loading blacklist of extensions
+    with open("blacklist.txt", "r", encoding="utf-8") as file:
         blacklist = {line.strip() for line in file}
-    driver = webdriver.Chrome()
+
+    # Setting a webdriver and its options
+    options = Options()
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--start-maximized")
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.maximize_window()
+
+    # Setting a request session for fast access to source-code in some situations
+    request_session = requests.Session()
 
     def __init__(
         self,
@@ -105,9 +120,10 @@ class Scraper:
 
         self._visited_pages.add(url)        # Ajout de la page à la liste des pages visitées
 
-        print(self._graph.number_of_nodes(), "Pages scrapées, page actuelle : ", url)
+        print(f"{self._graph.number_of_nodes()} Pages scrapées, page actuelle : {url}\nScrapping...")
 
         if self._base_link not in url:        # On ne traite que les pages de l'ENT
+            print()
             return
 
         extension = self.get_extension(url)
@@ -128,6 +144,13 @@ class Scraper:
 
         words = self._page_stats.word_count(parser)[0]  # Nombre de mots
         tags = self._page_stats.tag_count(parser)       # Nombre d'éléments du DOM
+        colors = self._page_stats.color_count(parser, url, Scraper.request_session)
+        screenshot = self._page_stats.full_page_screenshot(Scraper.driver)
+        empty_space = self._page_stats.empty_space(screenshot)
+        print(f"|-- Word count : {words}")
+        print(f"|-- Tag count : {tags}")
+        print(f"|-- Color count : {colors}")
+        print(f"|-- Empty space % : {empty_space}\n")
         self._graph.add_node(
             url,
             title=Scraper.driver.title,
@@ -137,6 +160,8 @@ class Scraper:
             internal=1,
             extension=extension,
             loading_time=loading_time,
+            nb_colors=colors,
+            empty_space=empty_space
         )  # add_node ne crée pas de doublons, mais actualise les valeurs si le nœud existe déjà
 
         for link in links:        # Appel récursif pour les pages en dessous
@@ -154,6 +179,18 @@ class Scraper:
         if self._login_required:
             if self._username == "" or self._password == "":
                 raise ValueError("Username and password must be provided if login is set to True")
+            request_login = Scraper.request_session.get("https://cas.utc.fr/cas/login.jsf")
+            login_soup = BeautifulSoup(request_login.content, "html.parser")
+            execution_value = login_soup.find("input", {"name": "execution"})["value"]
+            login_payload = {
+                "username": self._username,
+                "password": self._password,
+                "execution": execution_value,
+                "_eventId": "submit",
+                "geolocation": "",
+            }
+            Scraper.request_session.post("https://cas.utc.fr/cas/login.jsf", data=login_payload)
+
             username_field = Scraper.driver.find_element(By.ID, self._username_id)
             password_field = Scraper.driver.find_element(By.ID, self._password_id)
             login_button = Scraper.driver.find_element(
