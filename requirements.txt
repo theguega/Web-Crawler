@@ -2,3 +2,5 @@ requests
 beautifulsoup4
 networkx
 selenium
+scikit-image
+opencv-python
