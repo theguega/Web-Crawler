@@ -163,6 +163,10 @@ class Scraper:
             nb_colors=colors,
             empty_space=empty_space
         )  # add_node ne crée pas de doublons, mais actualise les valeurs si le nœud existe déjà
+        
+        print(self._graph)
+        nx.write_graphml(self._graph, "../graph/ent.graphml")
+        print("export done")
 
         for link in links:        # Appel récursif pour les pages en dessous
             extension = self.get_extension(link[0])
@@ -204,7 +208,7 @@ class Scraper:
         print("Traitement du graphe")
         self.calculate_shortest_paths(self._target_url, self._graph)
         print("Export du graphe")
-        nx.write_graphml(self._graph, "graph/ent.graphml")
+        nx.write_graphml(self._graph, "../graph/ent.graphml")
         print("Graph exporté avec succès : graph/ent.graphml")
         Scraper.driver.quit()
         return self._graph
