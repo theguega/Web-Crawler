@@ -1,0 +1,1066 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d8" for="node" attr.name="empty_space" attr.type="double" />
+  <key id="d7" for="node" attr.name="nb_colors" attr.type="long" />
+  <key id="d6" for="node" attr.name="loading_time" attr.type="double" />
+  <key id="d5" for="node" attr.name="extension" attr.type="string" />
+  <key id="d4" for="node" attr.name="internal" attr.type="long" />
+  <key id="d3" for="node" attr.name="nb_links" attr.type="long" />
+  <key id="d2" for="node" attr.name="nb_tags" attr.type="long" />
+  <key id="d1" for="node" attr.name="nb_words" attr.type="long" />
+  <key id="d0" for="node" attr.name="title" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="https://webapplis.utc.fr/ent/index.jsf">
+      <data key="d0">Ent - UTC</data>
+      <data key="d1">2020</data>
+      <data key="d2">2276</data>
+      <data key="d3">330</data>
+      <data key="d4">1</data>
+      <data key="d5">jsf</data>
+      <data key="d6">2.6508679389953613</data>
+      <data key="d7">167</data>
+      <data key="d8">0.45317656765676567</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/null?sid=261">
+      <data key="d5">html</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=93">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Centre de carrière (étudiants)</data>
+      <data key="d1">342</data>
+      <data key="d2">1089</data>
+      <data key="d3">16</data>
+      <data key="d6">1.3018889427185059</data>
+      <data key="d7">170</data>
+      <data key="d8">0.6064619883040936</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/207024-coaching-rh-rediger-un-cv-efficace">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/207028-studio-photo-portrait-cv">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://forms.gle/T1QSASTRTyZyZZz89">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/209331-coaching-rh-negocier-son-1er-emploi">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/206539-amphi-metiers-chanel">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/208571-amphi-metiers-thales">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/207047-rencontres-ambassadeurs-utc-spie-france">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/208583-amphi-metiers-groupe-savencia">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/208750-amphi-metiers-guerlain">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/208752-conference-plm-sopra-steria">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/208838-amphi-metiers-nordex">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/208847-amphi-metiers-dassault-systemes">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/208850-visite-safran-aerosystems-compiegne">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/209326-amphi-metiers-ingenico">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://utc.jobteaser.com/fr/events/209316-visite-s%20%20%20%20aint-gobain">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=127">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Objets promotionnels UTC</data>
+      <data key="d1">197</data>
+      <data key="d2">281</data>
+      <data key="d3">1</data>
+      <data key="d6">1.7951154708862305</data>
+      <data key="d7">170</data>
+      <data key="d8">0.5311463590483056</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/154/Objets Promo mars_2018.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://apprentissage.utc.fr/plans_hds/?sid=170">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=361">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Rechargements badge</data>
+      <data key="d1">295</data>
+      <data key="d2">249</data>
+      <data key="d3">5</data>
+      <data key="d6">1.7011744976043701</data>
+      <data key="d7">170</data>
+      <data key="d8">0.5461784897025171</data>
+    </node>
+    <node id="http://www.izly.fr">
+      <data key="d5">fr</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://demeter.utc.fr/portal/pls/portal30/SESAME.OPPOSITION_TRANSFERT_CROUS_DYN.show">
+      <data key="d5">show</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://www.izly.fr/#howitworks">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://payutc.nemopay.net">
+      <data key="d5">net</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="http://www.crous-amiens.fr/restaurant/restaurant-du-port-a-bateaux/?sid=126">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=132">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Sport</data>
+      <data key="d1">51</data>
+      <data key="d2">175</data>
+      <data key="d3">1</data>
+      <data key="d6">1.4772138595581055</data>
+      <data key="d7">170</data>
+      <data key="d8">0.6346070656092285</data>
+    </node>
+    <node id="http://www.sport.utc.fr">
+      <data key="d5">fr</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=753">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Taxe apprentissage</data>
+      <data key="d1">543</data>
+      <data key="d2">558</data>
+      <data key="d3">11</data>
+      <data key="d6">1.360365867614746</data>
+      <data key="d7">170</data>
+      <data key="d8">0.5715030820293978</data>
+    </node>
+    <node id="https://utc-fr.zoom.us/rec/share/kK3eBGpf-rECoaMqI2UGucj5VGx7tH_ZdHYyTrHqFh9PVAYyn4VDrGhGA3KETwHD.mNEGdlxB-b4Xrull">
+      <data key="d5">mNEGdlxB-b4Xrull</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2515/TA presentation ENT.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2515/Taxe-d'apprentissage remerciements.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2515/bordereau ta2022 contacts entreprise.docx">
+      <data key="d5">docx</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://www.utc.fr/utc-taxe-dapprentissage-campagne-2021">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2516/Taxe-d'apprentissage remerciements.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/contrib_taxe_app/form_contact/form_contact.xhtml;jsessionid=IAsR3JK3kuXamwHXKmdY9e6OCQzXdF4_Y1vLVOTz.jserv17a-prod">
+      <data key="d5">jserv17a-prod</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2518/bordereau ta2022 contacts entreprise.docx">
+      <data key="d5">docx</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2519/Formulaire de versement TA 2022.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2519/Signature Outlook Tutoriel.docx">
+      <data key="d5">docx</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2519/signature mail.jpg">
+      <data key="d5">jpg</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=119">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Relais handicap étudiants</data>
+      <data key="d1">2530</data>
+      <data key="d2">1321</data>
+      <data key="d3">20</data>
+      <data key="d6">1.4700453281402588</data>
+      <data key="d7">170</data>
+      <data key="d8">0.47967332123411976</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/714/PlanCompletUTC.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/714/PlaquetteHandicap_web.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/673/Questionnaire médical_demande aménagement examens _avec annexe quest paramédical_UTC.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/673/Questionnaire paramédical pour TSL_demande aménagement examens _UTC.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1191/Aménagements examens_bilans orthophoniques.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1191/Bilan orthophonique_éléments attendus.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://www.crous-amiens.fr/logements/logements-adaptes-aux-handicaps">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="http://www.crous-amiens.fr/wp-content/uploads/sites/9/2014/03/FICHE-LOGEMENT-HANDICAP-FORMULAIRE-19-20.docx">
+      <data key="d5">docx</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://www.messervices.etudiant.gouv.fr">
+      <data key="d5">fr</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1580/FICHE-LOGEMENT-HANDICAP-FORMULAIRE.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://www.agefiph.fr/actualites-handicap/10-videos-de-sensibilisation-sur-le-handicap-et-lenseignement">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2567/AfficheAccessibilité.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2567/Autisme et travail_mieux comprendre.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2567/Boite à outils_DYSLEXIE_comment aider les étudiants.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2567/Conseils pour créer des supports pédagogiques accessibles.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2567/Installation police Dyslexie.zip">
+      <data key="d5">zip</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2567/MESR_Livret_Accessibilite_HD.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2567/guide-pedagogique-handicap-invisible.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2625/Article_RQTH_Talenteo_publié 4 décembre 2018.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2625/RQTH_2022.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="http://www.utc.fr/dsi/handicap/guide_sensibilisation_handicap.pdf?sid=120">
+      <data key="d5">jsf</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=122">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Procédures d'urgences</data>
+      <data key="d1">962</data>
+      <data key="d2">768</data>
+      <data key="d3">25</data>
+      <data key="d6">1.6500093936920166</data>
+      <data key="d7">170</data>
+      <data key="d8">0.5439441978440076</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/BF_bât A_Fire_and_Evacuation_Instructions_EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/BF_bât A_Fire_and_Evacuation_Instructions_teachers_supervisors_EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/BF_points_de_rassemblement_BCD.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/BF_points_de_rassemblement_EFG.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/BF_points_rassemblement_A.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/CI_points_de_rassemblement.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/CR_points_rassemblement_2018.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/CT_points_de_rassemblement.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/Consigne incendie.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/Consignes particulières enseignant encadrant.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/Instructions_for_Evacuation_teachers_supervisors_EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/PG1_points_de_rassemblement_complément .pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/PG2_points_de_rassemblement.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/Using_a_fire_extinguisher_EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/377/utilisation d'un extincteur.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/ACCUEIL DE SECOURS BF_2017.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/BF_Arrival_of_emergency_services_2017_EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/BF_What_you_should_do_accident_or_medical_emergency_2017_EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/BF_bât A_Consignes générales.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/CONDUITE A TENIR EN CAS D'ACCIDENT OU MALAISE_2023.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/CONDUITE A TENIR EN CAS D'ACCIDENT OU MALAISE_BF_2023.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/Liste SST septembre 2023.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/411/What_you_should_do_accident_or_medical_emergency_2017_EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1005/BMBIdéclanchementGaAazote&amp;CO2D228.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1005/BMBIdéclanchementGazCO2-plateforme.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=123">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Procédures générales</data>
+      <data key="d1">1573</data>
+      <data key="d2">947</data>
+      <data key="d3">9</data>
+      <data key="d6">1.471482276916504</data>
+      <data key="d7">170</data>
+      <data key="d8">0.5572714681440443</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/893/Médiation du midi.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1431/recommandations_en_cas_de_fortes_chaleurs.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="http://gpuc.dgs.utc.fr">
+      <data key="d5">fr</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1740/ModeEmploiRegistreSanteSecuriteTravail_GPuC.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1869/Consigne tri des déchets biologiques et chimiques.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1869/Consignes tri des déchets.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1869/Procedure tri DASRI.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1869/Procedure_tri_des_dechets_chimiques.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2248/Procedure_transport_produits_dangereux_intersites_UTC.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="http://www.vigimeteo.com/widget/COMPIEGNE_60.htm?sid=604">
+      <data key="d5">jsf</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=125">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Médecine pour étudiants et personnels</data>
+      <data key="d1">602</data>
+      <data key="d2">486</data>
+      <data key="d3">1</data>
+      <data key="d6">1.5943355560302734</data>
+      <data key="d7">170</data>
+      <data key="d8">0.6112410656270305</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/547/Carte_PointEcoute A6 2022.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=725">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Autotests - Vaccination COVID</data>
+      <data key="d1">381</data>
+      <data key="d2">499</data>
+      <data key="d3">27</data>
+      <data key="d6">1.2953009605407715</data>
+      <data key="d7">170</data>
+      <data key="d8">0.5163944343617665</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2356/Affiche_test_autotest.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2356/GUIDE_AUTOTEST_ENS_SUP.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://www.dailymotion.com/video/x80n986">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="http://webapplis.utc.fr/webdocuments/ent3/2356/tutoriel%20autotest%20covid19%20version%20anglaise.mp4">
+      <data key="d5">mp4</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2356/tutoriel autotest covid19 version anglaise.mp4">
+      <data key="d5">mp4</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/autotest%20kesako%20pdf.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/AFFICHE%20autotest%20recap.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/FAQ%20autotest%20modifi%C3%A9%2021052021%20pdf.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/recap%20autotest%20210521.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/AFFICHE autotest recap.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/FAQ autotest modifié 21052021 pdf.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/autotest kesako pdf.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2361/recap autotest 210521.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://www.doctolib.fr/vaccination-covid-19/compiegne/centre-de-vaccination-covid-compiegne-arc">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://www.doctolib.fr/clinique-privee/compiegne/polyclinique-saint-come-vaccination">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://www.agglo-compiegne.fr/covid-19-mesures-et-directives">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://www.agglo-compiegne.fr/la-vaccination-contre-la-covid-19">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2364/Communiqu%C3%A9%20de%20presse%20sur%20vaccination%20des%20personnels.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2364/Fiche-SPF-Se-faire-vacciner.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2364/AfficheVaccination.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2364/ListePharmaciesVaccination.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2364/Communiqué de presse sur vaccination des personnels.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=654">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - COVID - màj 10/01/2022</data>
+      <data key="d1">1318</data>
+      <data key="d2">901</data>
+      <data key="d3">46</data>
+      <data key="d6">1.1868021488189697</data>
+      <data key="d7">170</data>
+      <data key="d8">0.565074939003137</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/FAQ-DGESIP-4janv21.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/1_Symptomes_que_faire%28v3%29.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2258/2_Eligibilite-test-antigenique.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2258/3_Realiser_test_a_qui_m_adresser%28v4%29.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/4_Resultats_test_que_faire%28v2%29.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiche%20renseignements%20pharmacie%20de%20Royallieu.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiches%20FDE_Coronavirus_FR_CERBAlliance_Compi%C3%A8gne_new_2.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/1_Symptomes_que_faire(v3).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/2_Eligibilite-test-antigenique.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/3_Realiser_test_a_qui_m_adresser(v4).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/4_Resultats_test_que_faire(v2).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiche renseignements pharmacie de Royallieu.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiches FDE_Coronavirus_FR_CERBAlliance_Compiègne_new_2.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/FicheE1_etudiants_avec_symptomes_sur_le_site(v4).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/FicheE2-salles_de_cours(v4).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/FicheE3_Utilisation_ascenseurs(v4).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche1_apparition_symptomes(v10).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche2_Utilisation_ascenseurs(v8).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche3_utilisation_vehicules(v9).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche4_bio-nettoyage_de_precaution(v8).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche5_intervention_technique(v9).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche6_circulation(v9).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche7_Utilisation_masques(v5).pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1939/AIDES%20ET%20SOUTIEN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1939/AIDES ET SOUTIEN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1936/travail-sur-%C3%A9cran-et-astuces.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1936/TELETRAVAIL-les-bonnes-pratiques.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1936/Micro-pause-pour-se-d%C3%A8tendre-au-bureau...-1.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1936/COMMENT%20VIVRE%20MIEUX.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1936/COMMENT VIVRE MIEUX.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1936/Micro-pause-pour-se-dètendre-au-bureau...-1.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/1936/travail-sur-écran-et-astuces.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/sejournant/externe/index.html">
+      <data key="d5">html</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/2158/qrcode-visiteur-exterieur.png">
+      <data key="d5">png</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=401">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=182">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Organisation générale</data>
+      <data key="d1">443</data>
+      <data key="d2">563</data>
+      <data key="d3">46</data>
+      <data key="d6">1.5160815715789795</data>
+      <data key="d7">170</data>
+      <data key="d8">0.6065064235391628</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme%20general.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme%20general-EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DGS.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-affaires-generales.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-affaires-juridiques.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-agence-comptable.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DAF.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DFP.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-Dir-communication.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DPL.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-drh.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DR.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DRI.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DSI.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-FC.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-direction%20du%20pilotage-amelioration-continue.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SHS.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-servi-univ-medecine-preventive.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SME.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SAO.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SAE.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-BUTC.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme general-EN.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme general.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-direction du pilotage-amelioration-continue.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://www.utc.fr/actes-reglementaires">
+      <data key="d5">html</data>
+      <data key="d4">0</data>
+    </node>
+    <node id="https://webapplis.utc.fr/webdocuments/ent3//2964/2023-093-I%20Fermeture%20UTC%202023-2024.pdf">
+      <data key="d5">pdf</data>
+      <data key="d4">1</data>
+    </node>
+    <node id="https://webapplis.utc.fr/ent/services/services.jsf?sid=136">
+      <data key="d5">jsf</data>
+      <data key="d4">1</data>
+      <data key="d0">Ent - Apprentissage</data>
+      <data key="d1">46</data>
+      <data key="d2">210</data>
+      <data key="d3">1</data>
+      <data key="d6">1.1685030460357666</data>
+      <data key="d7">170</data>
+      <data key="d8">0.5768005540166204</data>
+    </node>
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/null?sid=261" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=127" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://apprentissage.utc.fr/plans_hds/?sid=170" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=361" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="http://www.crous-amiens.fr/restaurant/restaurant-du-port-a-bateaux/?sid=126" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=132" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="http://www.utc.fr/dsi/handicap/guide_sensibilisation_handicap.pdf?sid=120" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="http://www.vigimeteo.com/widget/COMPIEGNE_60.htm?sid=604" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=125" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=401" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" />
+    <edge source="https://webapplis.utc.fr/ent/index.jsf" target="https://webapplis.utc.fr/ent/services/services.jsf?sid=136" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/207024-coaching-rh-rediger-un-cv-efficace" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/207028-studio-photo-portrait-cv" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://forms.gle/T1QSASTRTyZyZZz89" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/209331-coaching-rh-negocier-son-1er-emploi" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/206539-amphi-metiers-chanel" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/208571-amphi-metiers-thales" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/207047-rencontres-ambassadeurs-utc-spie-france" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/208583-amphi-metiers-groupe-savencia" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/208750-amphi-metiers-guerlain" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/208752-conference-plm-sopra-steria" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/208838-amphi-metiers-nordex" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/208847-amphi-metiers-dassault-systemes" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/208850-visite-safran-aerosystems-compiegne" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/209326-amphi-metiers-ingenico" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=93" target="https://utc.jobteaser.com/fr/events/209316-visite-s%20%20%20%20aint-gobain" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=127" target="https://webapplis.utc.fr/webdocuments/ent3/154/Objets Promo mars_2018.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=361" target="http://www.izly.fr" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=361" target="https://demeter.utc.fr/portal/pls/portal30/SESAME.OPPOSITION_TRANSFERT_CROUS_DYN.show" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=361" target="https://www.izly.fr/#howitworks" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=361" target="https://payutc.nemopay.net" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=132" target="http://www.sport.utc.fr" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://utc-fr.zoom.us/rec/share/kK3eBGpf-rECoaMqI2UGucj5VGx7tH_ZdHYyTrHqFh9PVAYyn4VDrGhGA3KETwHD.mNEGdlxB-b4Xrull" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2515/TA presentation ENT.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2515/Taxe-d'apprentissage remerciements.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2515/bordereau ta2022 contacts entreprise.docx" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://www.utc.fr/utc-taxe-dapprentissage-campagne-2021" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2516/Taxe-d'apprentissage remerciements.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/contrib_taxe_app/form_contact/form_contact.xhtml;jsessionid=IAsR3JK3kuXamwHXKmdY9e6OCQzXdF4_Y1vLVOTz.jserv17a-prod" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2518/bordereau ta2022 contacts entreprise.docx" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2519/Formulaire de versement TA 2022.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2519/Signature Outlook Tutoriel.docx" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=753" target="https://webapplis.utc.fr/webdocuments/ent3/2519/signature mail.jpg" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/714/PlanCompletUTC.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/714/PlaquetteHandicap_web.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/673/Questionnaire médical_demande aménagement examens _avec annexe quest paramédical_UTC.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/673/Questionnaire paramédical pour TSL_demande aménagement examens _UTC.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/1191/Aménagements examens_bilans orthophoniques.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/1191/Bilan orthophonique_éléments attendus.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://www.crous-amiens.fr/logements/logements-adaptes-aux-handicaps" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="http://www.crous-amiens.fr/wp-content/uploads/sites/9/2014/03/FICHE-LOGEMENT-HANDICAP-FORMULAIRE-19-20.docx" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://www.messervices.etudiant.gouv.fr" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/1580/FICHE-LOGEMENT-HANDICAP-FORMULAIRE.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://www.agefiph.fr/actualites-handicap/10-videos-de-sensibilisation-sur-le-handicap-et-lenseignement" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2567/AfficheAccessibilité.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2567/Autisme et travail_mieux comprendre.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2567/Boite à outils_DYSLEXIE_comment aider les étudiants.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2567/Conseils pour créer des supports pédagogiques accessibles.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2567/Installation police Dyslexie.zip" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2567/MESR_Livret_Accessibilite_HD.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2567/guide-pedagogique-handicap-invisible.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2625/Article_RQTH_Talenteo_publié 4 décembre 2018.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=119" target="https://webapplis.utc.fr/webdocuments/ent3/2625/RQTH_2022.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/BF_bât A_Fire_and_Evacuation_Instructions_EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/BF_bât A_Fire_and_Evacuation_Instructions_teachers_supervisors_EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/BF_points_de_rassemblement_BCD.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/BF_points_de_rassemblement_EFG.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/BF_points_rassemblement_A.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/CI_points_de_rassemblement.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/CR_points_rassemblement_2018.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/CT_points_de_rassemblement.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/Consigne incendie.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/Consignes particulières enseignant encadrant.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/Instructions_for_Evacuation_teachers_supervisors_EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/PG1_points_de_rassemblement_complément .pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/PG2_points_de_rassemblement.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/Using_a_fire_extinguisher_EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/377/utilisation d'un extincteur.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/ACCUEIL DE SECOURS BF_2017.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/BF_Arrival_of_emergency_services_2017_EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/BF_What_you_should_do_accident_or_medical_emergency_2017_EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/BF_bât A_Consignes générales.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/CONDUITE A TENIR EN CAS D'ACCIDENT OU MALAISE_2023.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/CONDUITE A TENIR EN CAS D'ACCIDENT OU MALAISE_BF_2023.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/Liste SST septembre 2023.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/411/What_you_should_do_accident_or_medical_emergency_2017_EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/1005/BMBIdéclanchementGaAazote&amp;CO2D228.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=122" target="https://webapplis.utc.fr/webdocuments/ent3/1005/BMBIdéclanchementGazCO2-plateforme.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/893/Médiation du midi.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/1431/recommandations_en_cas_de_fortes_chaleurs.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="http://gpuc.dgs.utc.fr" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/1740/ModeEmploiRegistreSanteSecuriteTravail_GPuC.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/1869/Consigne tri des déchets biologiques et chimiques.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/1869/Consignes tri des déchets.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/1869/Procedure tri DASRI.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/1869/Procedure_tri_des_dechets_chimiques.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=123" target="https://webapplis.utc.fr/webdocuments/ent3/2248/Procedure_transport_produits_dangereux_intersites_UTC.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=125" target="https://webapplis.utc.fr/webdocuments/ent3/547/Carte_PointEcoute A6 2022.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2356/Affiche_test_autotest.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2356/GUIDE_AUTOTEST_ENS_SUP.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://www.dailymotion.com/video/x80n986" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="http://webapplis.utc.fr/webdocuments/ent3/2356/tutoriel%20autotest%20covid19%20version%20anglaise.mp4" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2356/tutoriel autotest covid19 version anglaise.mp4" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/autotest%20kesako%20pdf.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/AFFICHE%20autotest%20recap.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/FAQ%20autotest%20modifi%C3%A9%2021052021%20pdf.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/recap%20autotest%20210521.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/AFFICHE autotest recap.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/FAQ autotest modifié 21052021 pdf.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/autotest kesako pdf.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2361/recap autotest 210521.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://www.doctolib.fr/vaccination-covid-19/compiegne/centre-de-vaccination-covid-compiegne-arc" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://www.doctolib.fr/clinique-privee/compiegne/polyclinique-saint-come-vaccination" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://www.agglo-compiegne.fr/covid-19-mesures-et-directives" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://www.agglo-compiegne.fr/la-vaccination-contre-la-covid-19" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2364/Communiqu%C3%A9%20de%20presse%20sur%20vaccination%20des%20personnels.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2364/Fiche-SPF-Se-faire-vacciner.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2364/AfficheVaccination.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2364/ListePharmaciesVaccination.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=725" target="https://webapplis.utc.fr/webdocuments/ent3/2364/Communiqué de presse sur vaccination des personnels.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/FAQ-DGESIP-4janv21.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/1_Symptomes_que_faire%28v3%29.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2258/2_Eligibilite-test-antigenique.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2258/3_Realiser_test_a_qui_m_adresser%28v4%29.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/4_Resultats_test_que_faire%28v2%29.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiche%20renseignements%20pharmacie%20de%20Royallieu.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiches%20FDE_Coronavirus_FR_CERBAlliance_Compi%C3%A8gne_new_2.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/1_Symptomes_que_faire(v3).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/2_Eligibilite-test-antigenique.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/3_Realiser_test_a_qui_m_adresser(v4).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/4_Resultats_test_que_faire(v2).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiche renseignements pharmacie de Royallieu.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2138/Fiches FDE_Coronavirus_FR_CERBAlliance_Compiègne_new_2.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/FicheE1_etudiants_avec_symptomes_sur_le_site(v4).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/FicheE2-salles_de_cours(v4).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/FicheE3_Utilisation_ascenseurs(v4).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche1_apparition_symptomes(v10).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche2_Utilisation_ascenseurs(v8).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche3_utilisation_vehicules(v9).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche4_bio-nettoyage_de_precaution(v8).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche5_intervention_technique(v9).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche6_circulation(v9).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2006/Fiche7_Utilisation_masques(v5).pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1939/AIDES%20ET%20SOUTIEN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1939/AIDES ET SOUTIEN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1936/travail-sur-%C3%A9cran-et-astuces.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1936/TELETRAVAIL-les-bonnes-pratiques.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1936/Micro-pause-pour-se-d%C3%A8tendre-au-bureau...-1.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1936/COMMENT%20VIVRE%20MIEUX.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1936/COMMENT VIVRE MIEUX.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1936/Micro-pause-pour-se-dètendre-au-bureau...-1.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/1936/travail-sur-écran-et-astuces.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/sejournant/externe/index.html" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=654" target="https://webapplis.utc.fr/webdocuments/ent3/2158/qrcode-visiteur-exterieur.png" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme%20general.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme%20general-EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DGS.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-affaires-generales.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-affaires-juridiques.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-agence-comptable.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DAF.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DFP.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-Dir-communication.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DPL.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-drh.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DR.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DRI.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-DSI.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-FC.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-direction%20du%20pilotage-amelioration-continue.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SHS.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-servi-univ-medecine-preventive.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SME.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SAO.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-SAE.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-BUTC.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme general-EN.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme general.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3/234/Organigramme-direction du pilotage-amelioration-continue.pdf" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://www.utc.fr/actes-reglementaires" />
+    <edge source="https://webapplis.utc.fr/ent/services/services.jsf?sid=182" target="https://webapplis.utc.fr/webdocuments/ent3//2964/2023-093-I%20Fermeture%20UTC%202023-2024.pdf" />
+  </graph>
+</graphml>
