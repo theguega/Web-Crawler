@@ -4,3 +4,4 @@ networkx
 selenium
 scikit-image
 opencv-python
+webdriver_manager
