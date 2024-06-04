@@ -19,3 +19,4 @@ png
 show
 PNG
 exe
+PDF
