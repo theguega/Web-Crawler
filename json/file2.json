@@ -1,0 +1,17 @@
+[
+  {
+    "nom": "Ordinateur portable",
+    "prix": 1200,
+    "stock": 50
+  },
+  {
+    "nom": "Smartphone",
+    "prix": 800,
+    "stock": 100
+  },
+  {
+    "nom": "Casque audio",
+    "prix": 150,
+    "stock": 200
+  }
+]
