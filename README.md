@@ -2,19 +2,6 @@
 
 Ce projet est un web-crawler permettant de récupérer toutes les informations du site ENT - UTC.
 
-<div id="image-table">
-    <table>
-	    <tr>
-    	    <td style="padding:10px">
-        	    <img src="graph/export/in+depth.png" width="100%"/>
-      	    </td>
-            <td style="padding:10px">
-            	<img src="graph/export/extensions.png" width="100%"/>
-            </td>
-        </tr>
-    </table>
-</div>
-
 ## Configuration du projet :
 
 1. Installation des bibliothèques  
@@ -42,4 +29,6 @@ python3 src/main.py
 
 5. Récupérer le graph exportés : `graph/ent.graphml`  
 
-Credits : Samuel Beziat & Theo Guegan
+---
+
+Crédits : Samuel Beziat & Theo Guegan
