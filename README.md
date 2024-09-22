@@ -1,33 +1,45 @@
-# Méthode d’évaluation de la complexité et de la clarté de l’ENT UTC
+# **Complexity and Clarity Evaluation of the ENT UTC**
 
-Ce projet est un web-crawler permettant de récupérer toutes les informations du site ENT - UTC.
+## **Description**
+This project is a web crawler designed to scrape all relevant information from the ENT (Espace Numérique de Travail) platform of **UTC**. The collected data is structured into a graph, providing insights into the complexity and clarity of the website's content and structure.
 
-## Configuration du projet :
+![graph](graph/export/extensions.png)
 
-1. Installation des bibliothèques  
+## **Table of Contents**
+1. [Setup](#setup)
+2. [Usage](#usage)
+3. [Output](#output)
 
-```bash
-pip install -r src/requirements.txt  
-```
+## **Setup**
+To set up the project, follow these steps:
 
-2. Créer un fichier `login.py` et y ajouter les informations suivantes :  
+1. Install the required Python libraries:
+   ```bash
+   pip install -r src/requirements.txt
+   ```
 
-```python
-credentials = {
-    'username': 'yourusername',
-    'password': 'youpassword',
-}
-```
+2. Create a `login.py` file and add your ENT login credentials:
+   ```python
+   credentials = {
+       'username': 'yourusername',
+       'password': 'yourpassword',
+   }
+   ```
 
-3. Lancer le script  
+## **Usage**
+Once everything is configured, run the script to start the web crawling process:
 
 ```bash
 python3 src/main.py
 ```
 
-4. Attendre que toutes les pages soient récupérées ~15 minutes.  
+The scraping process will take approximately **15 minutes** to retrieve all pages.
 
-5. Récupérer le graph exportés : `graph/ent.graphml`  
+## **Output**
+The data is exported as a **graph** file in the `graph/` directory. You can find the generated graph file here:
+```
+graph/ent.graphml
+```
 
 ---
 
